@@ -18,7 +18,7 @@ public class Algo2Test {
 		Problem problem = TopAlgoITest.getProblem();
 
 		Algo2 algo2 = new Algo2();
-		Assert.assertTrue(algo2.isApplicable(problem));
+		Assert.assertTrue(algo2.apply(problem));
 	}
 
 	@Test

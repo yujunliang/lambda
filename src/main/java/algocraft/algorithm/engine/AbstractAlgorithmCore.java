@@ -3,10 +3,10 @@ package algocraft.algorithm.engine;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.base.Predicate;
 import org.apache.log4j.Logger;
 
 import algocraft.algorithm.AlgorithmException;
-import algocraft.algorithm.Applicability;
 import algocraft.algorithm.Otherwise;
 import algocraft.algorithm.Solution;
 
@@ -30,8 +30,8 @@ public abstract class AbstractAlgorithmCore<T> implements Solution<T> {
 	/**
 	 * Compose the algorithm. First get a ProblemSolver for the algorithm, then
 	 * wrap the ProblemSovler and algorithm into a kind of wrapper based on the
-	 * algorithm. If the algorithm is an instance of Applicability, wrap the
-	 * wrapper and the algorithm as an instance of Applicability into an
+	 * algorithm. If the algorithm is an instance of Predicate, wrap the
+	 * wrapper and the algorithm as an instance of Predicate into an
 	 * instance of ApplicabilityWrapper. Last, add the wrapper into the list of
 	 * Solutions.
 	 * 
@@ -46,18 +46,18 @@ public abstract class AbstractAlgorithmCore<T> implements Solution<T> {
 	}
 
 	protected void wrap(final Solution<T> algorithm, Solution<T> solution) {
-		if (algorithm instanceof Applicability<?>) {
+		if (algorithm instanceof Predicate<?>) {
 			if (algorithm instanceof Otherwise<?>) {
 				@SuppressWarnings("unchecked")
-				final Applicability<T> applicability = (Applicability<T>) algorithm;
+				final Predicate<T> predicate = (Predicate<T>) algorithm;
 				@SuppressWarnings("unchecked")
 				final Otherwise<T> alternative = (Otherwise<T>) algorithm;
-				solution = new OtherwiseWrapper<T>(solution, applicability,
+				solution = new OtherwiseWrapper<T>(solution, predicate,
 						alternative);
 			} else {
 				@SuppressWarnings("unchecked")
-				final Applicability<T> applicability = (Applicability<T>) algorithm;
-				solution = new ApplicabilityWrapper<T>(solution, applicability);
+				final Predicate<T> predicate = (Predicate<T>) algorithm;
+				solution = new ApplicabilityWrapper<T>(solution, predicate);
 			}
 		}
 		algorithms.add(solution);

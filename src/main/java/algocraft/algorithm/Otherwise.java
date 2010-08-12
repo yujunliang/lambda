@@ -1,5 +1,7 @@
 package algocraft.algorithm;
 
+import com.google.common.base.Predicate;
+
 /**
  * 
  * This interface specify the alternative logic if the main logic is not
@@ -9,7 +11,7 @@ package algocraft.algorithm;
  * 
  * @param <T>
  */
-public interface Otherwise<T> extends Applicability<T> {
+public interface Otherwise<T> extends Predicate<T> {
 
 	/**
 	 * if the main logic is not applicable, execute this logic.

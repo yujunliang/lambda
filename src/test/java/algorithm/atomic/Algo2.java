@@ -37,7 +37,7 @@ public final class Algo2 implements Solution<Problem>, Otherwise<Problem> {
 	}
 
 	@Override
-	public boolean isApplicable(final Problem problem) {
+	public boolean apply(final Problem problem) {
 		return problem.getInput().isCondition1();
 	}
 
