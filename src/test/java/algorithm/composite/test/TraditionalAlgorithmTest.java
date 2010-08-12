@@ -1,7 +1,5 @@
 package algorithm.composite.test;
 
-import static algocraft.creation.FlyweightFactory.get;
-
 import java.util.Date;
 
 import org.junit.Test;
@@ -31,7 +29,7 @@ public class TraditionalAlgorithmTest  {
 
 	public static Output createOutput() {
 
-		TraditionalAlgorithm algo_I = get(TraditionalAlgorithm.class);
+		TraditionalAlgorithm algo_I = new TraditionalAlgorithm();
 		Input input = getInput();
 		return algo_I.solve(input);
 	}

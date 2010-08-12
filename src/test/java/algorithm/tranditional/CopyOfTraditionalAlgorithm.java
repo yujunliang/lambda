@@ -12,7 +12,7 @@ import domain.SubOutput2;
 public class CopyOfTraditionalAlgorithm {
 	
 	/**
-	 * Compare this method to the methods in Algo1, Algo2, ... Algo5
+	 * Compare this method to the methods in Algo1, Algo2If, ... Algo5
 	 * 
 	 */
 	public Output solve(Input input) {
@@ -25,7 +25,7 @@ public class CopyOfTraditionalAlgorithm {
 				doAlgo2(input, output, i);
 			}
 		} else {
-			System.out.println("algorithm.primitive.Algo2@7a187814 is not applicable.");	
+			System.out.println("algorithm.primitive.Algo2If@7a187814 is not applicable.");
 		}
 
 		if (input.isCondition2()) {

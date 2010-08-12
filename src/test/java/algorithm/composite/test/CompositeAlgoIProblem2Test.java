@@ -1,7 +1,5 @@
 package algorithm.composite.test;
 
-import static algocraft.creation.FlyweightFactory.get;
-
 import org.junit.Test;
 
 import problem2.CompositeAlgoIProblem2;
@@ -30,9 +28,8 @@ public class CompositeAlgoIProblem2Test {
 	public static Output createOutput() throws Exception {
 
 		Problem2 problem = getProblem();
-		CompositeAlgoIProblem2 algoI = get(CompositeAlgoIProblem2.class);
-		algoI.solve(problem);
-		return problem.getOutput();
+		CompositeAlgoIProblem2 algoI = new CompositeAlgoIProblem2();
+		return algoI.apply(problem).getOutput();
 	}
 	
 	private static Problem2 getProblem() {

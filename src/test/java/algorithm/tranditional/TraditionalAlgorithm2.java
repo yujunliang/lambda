@@ -12,7 +12,7 @@ import domain.SubOutput2;
 public class TraditionalAlgorithm2 {
 	
 	/**
-	 * Compare this method to the methods in Algo1, Algo2, ... Algo5
+	 * Compare this method to the methods in Algo1, Algo2If, ... Algo5
 	 * 
 	 */
 	public Output solve(Input input) {

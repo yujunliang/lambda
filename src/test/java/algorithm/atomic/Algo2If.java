@@ -3,19 +3,16 @@ package algorithm.atomic;
 import java.util.Date;
 import java.util.List;
 
-import algocraft.algorithm.Otherwise;
-import algocraft.algorithm.Solution;
-import algocraft.creation.Singleton;
 import algocraft.util.Stopwatch;
+import com.google.common.base.Function;
 import domain.Input;
 import domain.Output;
 import domain.SubOutput1;
 
-@Singleton
-public final class Algo2 implements Solution<Problem>, Otherwise<Problem> {
+public final class Algo2If implements Function<Problem, Problem> {
 
 	@Override
-	public void solve(final Problem problem) {
+	public Problem apply(final Problem problem) {
 
 		// if (i == 1) {
 		// throw new RuntimeException();
@@ -34,17 +31,6 @@ public final class Algo2 implements Solution<Problem>, Otherwise<Problem> {
 			final List<SubOutput1> list = output.getSubOutput1List();
 			list.add(subOutput1);
 		}
+		return problem;
 	}
-
-	@Override
-	public boolean apply(final Problem problem) {
-		return problem.getInput().isCondition1();
-	}
-
-	@Override
-	public void otherwise(final Problem problem) {
-		System.out
-				.println("algorithm.primitive.Algo2@7a187814 is not applicable.");
-	}
-
 }

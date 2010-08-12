@@ -1,15 +1,14 @@
 package algorithm.atomic;
 
-import algocraft.algorithm.Solution;
-import algocraft.creation.Singleton;
+import com.google.common.base.Function;
 import domain.SubOutput2;
 
-@Singleton
-public final class Algo4 implements Solution<Problem> {
+public final class Algo4 implements Function<Problem, Problem> {
 
 	@Override
-	public void solve(final Problem problem) {
+	public Problem apply(final Problem problem) {
 		final SubOutput2 subOutput = problem.getOutput().getSubOutput2();
 		subOutput.getDate().setTime(subOutput.getDate().getTime() + 6000);
+		return problem;
 	}
 }

@@ -1,7 +1,5 @@
 package algorithm.composite.test;
 
-import static algocraft.creation.FlyweightFactory.get;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
@@ -33,9 +31,8 @@ public class TopAlgoITest  {
 
 	public static Output createOutput() throws Exception {
 		Problem problem = getProblem();
-		TopAlgoI algoI = get(TopAlgoI.class);
-		algoI.solve(problem);
-		return problem.getOutput();
+		TopAlgoI algoI = new TopAlgoI();
+		return algoI.apply(problem).getOutput();
 	}
 
 	public static Problem getProblem() {
@@ -58,11 +55,10 @@ public class TopAlgoITest  {
 
 		try {
 			Problem problem = getProblem();
-			TopAlgoI algoI = get(TopAlgoI.class);
+			TopAlgoI algoI = new TopAlgoI();
 			Stopwatch watch = Stopwatch.start();
-			algoI.solve(problem);
+			algoI.apply(problem);
 			new StopSign(watch).call(problem);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

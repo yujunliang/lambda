@@ -1,18 +1,17 @@
 package algorithm.atomic;
 
-import algocraft.algorithm.Solution;
-import algocraft.creation.Singleton;
 import algocraft.util.Stopwatch;
+import com.google.common.base.Function;
 import domain.Output;
 import domain.OutputType;
 
-@Singleton
-public final class Algo1 implements Solution<Problem> {
+public final class Algo1 implements Function<Problem, Problem> {
 
 	@Override
-	public void solve(final Problem problem) {
+	public Problem apply(final Problem problem) {
 		Stopwatch.busyWork();
 		final Output output = problem.getOutput();
 		output.setType(OutputType.TYPE1);
+		return problem;
 	}
 }
