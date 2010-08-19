@@ -29,7 +29,12 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.12</version>
 		</dependency>
-
+        <dependency>
+          <groupId>org.jbehave</groupId>
+          <artifactId>jbehave-core</artifactId>
+          <version>3.0-rc3</version>
+        </dependency>
+ 
 
 	</dependencies>
 	<build>
