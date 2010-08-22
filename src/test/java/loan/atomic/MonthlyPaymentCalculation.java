@@ -1,10 +1,11 @@
-package loan;
+package loan.atomic;
 
 import com.google.common.base.Function;
+import loan.domain.Worksheet;
 
-import static loan.FinancialCalculator.monthlyPayment;
+import static loan.domain.FinancialCalculator.monthlyPayment;
 
-public class MonthlyPaymentCalculation implements Function<Worksheet,Worksheet>{
+public class MonthlyPaymentCalculation implements Function<Worksheet, Worksheet>{
 
     @Override
     public Worksheet apply(Worksheet worksheet) {

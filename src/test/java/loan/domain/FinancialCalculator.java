@@ -1,4 +1,4 @@
-package loan;
+package loan.domain;
 
 public class FinancialCalculator {
     public static double monthlyPayment(double rate, int term, double principle) {

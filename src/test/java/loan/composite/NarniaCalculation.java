@@ -1,7 +1,12 @@
-package loan;
+package loan.composite;
 
 
 import algocraft.algorithm.engine.AbstractFunction;
+import loan.atomic.FirstTimeBuyerPredicate;
+import loan.atomic.MonthlyPaymentCalculation;
+import loan.atomic.StampDutyOnMonthlyPayment;
+import loan.atomic.TotalCalculation;
+import loan.domain.Worksheet;
 
 import static algocraft.algorithm.engine.AlgorithmComposer.conditional;
 

@@ -1,4 +1,4 @@
-package loan;
+package loan.domain;
 
 public enum Country {
 

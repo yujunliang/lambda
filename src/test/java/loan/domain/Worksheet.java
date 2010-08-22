@@ -1,4 +1,6 @@
-package loan;
+package loan.domain;
+
+import loan.domain.Country;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

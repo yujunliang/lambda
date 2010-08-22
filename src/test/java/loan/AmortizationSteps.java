@@ -1,5 +1,7 @@
 package loan;
 
+import loan.composite.LoanCalculation;
+import loan.domain.Worksheet;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;

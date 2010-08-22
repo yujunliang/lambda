@@ -1,6 +1,7 @@
-package loan;
+package loan.atomic;
 
 import com.google.common.base.Predicate;
+import loan.domain.Worksheet;
 
 import static algocraft.util.Logic.not;
 

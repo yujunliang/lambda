@@ -1,6 +1,8 @@
-package loan;
+package loan.composite;
 
 import com.google.common.base.Function;
+import loan.domain.Country;
+import loan.domain.Worksheet;
 
 import java.util.Map;
 
