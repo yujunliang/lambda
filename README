@@ -11,3 +11,9 @@ be collected on the first month payment as well as the applciaiton fee.
 
 In Gondor, buyers pay stamp duty on monthly payment the rate is 2% of the monthly payment. The
 application fee will be added to first month payment.
+
+Note,
+
+When learning this framework, please pay more attention to how to wire atomic function into a
+complex function than how individual function works. The example of wiring can be found in GondorCalculation,
+NarniaCalculation and WonderlandCalculation.
