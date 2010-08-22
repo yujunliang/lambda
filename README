@@ -1,6 +1,6 @@
 Please check LoanStory.java and LoanCalculation.java for example.
 
-This story demonstrates how to usr Compalgo to solve complex business problems.
+This story demonstrates how to use Compalgo to solve the following complex business problems.
 
 In Narnia, if buyers borrow applcation fee, the applcation fee will be added to loan principal, otherwise it
 will be added to first month payment;
