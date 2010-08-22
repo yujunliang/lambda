@@ -1,4 +1,4 @@
-package loan;
+package jbehave;
 
 import loan.composite.LoanCalculation;
 import loan.domain.Worksheet;

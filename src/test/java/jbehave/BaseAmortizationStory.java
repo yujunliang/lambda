@@ -1,4 +1,4 @@
-package loan;
+package jbehave;
 
 import static org.jbehave.core.reporters.StoryReporterBuilder.Format.CONSOLE;
 import static org.jbehave.core.reporters.StoryReporterBuilder.Format.HTML;
@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Properties;
 
+import jbehave.AmortizationSteps;
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -55,7 +56,7 @@ public abstract class BaseAmortizationStory extends JUnitStory {
 
     @Override
     public List<CandidateSteps> candidateSteps() {
-        return new InstanceStepsFactory(configuration(), new AmortizationSteps() 
+        return new InstanceStepsFactory(configuration(), new AmortizationSteps()
            ).createCandidateSteps();
     }
 

@@ -39,4 +39,4 @@ And interest of 3.7%
 And I am in WL
 When we calculate periodic payment
 Then 3747.90 results
-And 300.00 stampduty
+And 3000.00 stampduty
