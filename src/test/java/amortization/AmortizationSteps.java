@@ -1,19 +1,14 @@
 package amortization;
 
-import algocraft.algorithm.engine.AlgorithmComposer;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class AmortizationSteps {
-
-    BigDecimal monthPayment;
 
     private Worksheet worksheet = new Worksheet();
 
@@ -32,7 +27,7 @@ public class AmortizationSteps {
         worksheet.setRate(interest);
     }
 
-    @Given("i am a first-time buyer")
+    @Given("$i am a first-time buyer")
     public void givenAFirstTimeBuyer() {
         worksheet.setFTBuyer(true);
     }
@@ -44,14 +39,19 @@ public class AmortizationSteps {
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-        new NardiaCalculation().apply(worksheet);
-        monthPayment = worksheet.getMonthPayment();
+        new LoanCalculation().apply(worksheet);
     }
 
     @Then("$payment results")
     public void thenResultingPayment(BigDecimal expected) {
-        assertEquals("312.42", "" + monthPayment.toString());
-        
+        assertEquals(expected,  worksheet.getMonthPayment());
+
+    }
+
+    @Then("$duty stampduty")
+    public void andStampDuty(BigDecimal expected) {
+        assertEquals(expected, worksheet.getStampDuty());
+        worksheet = new Worksheet();
     }
 
 }

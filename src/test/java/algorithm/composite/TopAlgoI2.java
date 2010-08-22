@@ -1,29 +1,21 @@
 package algorithm.composite;
 
 
-import algocraft.algorithm.engine.AlgorithmComposer;
+import algocraft.algorithm.engine.AbstractFunction;
 import algorithm.atomic.*;
-import com.google.common.base.Function;
 
+import static algocraft.algorithm.engine.AlgorithmComposer.conditional;
 import static com.google.common.base.Functions.compose;
 
-public final class TopAlgoI2 implements Function<Problem, Problem> {
-	private Function<Problem,Problem> topAlgorithm;
+public final class TopAlgoI2 extends AbstractFunction<Problem, Problem> {
 
 	public TopAlgoI2() {
-		Function<Problem,Problem> compositeAlgo1 = compose(new Algo1(), AlgorithmComposer.conditional(new Algo2Predicate(), new Algo2If(), new Algo2Else()));
-		Function<Problem, Problem> compositeAlgo2 = AlgorithmComposer.conditional(new Condition2Predicate(), compose(new Algo3(), new Algo4()));
-
-		topAlgorithm = compose(new Algo5(),
-								compose(compositeAlgo2,
-										compose(new Algo1(),
-												new Algo0())));
+        super(new Algo0(),
+              new Algo1(),
+              conditional(new Condition2Predicate(),
+                          compose(new Algo3(), new Algo4()),
+                          new Algo5()
+                         )
+              );
 	}
-
-
-	@Override
-	public Problem apply(Problem from) {
-		return topAlgorithm.apply(from);
-	}
-
 }
