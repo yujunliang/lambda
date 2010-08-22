@@ -1,1 +1,10 @@
 Please check LoanStory.java and LoanCalculation.java for example.
+
+This story demonstrates how to usr Compalgo to solve complex business problems.
+
+In Narnia, if buyers borrow applcation fee, the applcation fee will be added to loan principal, otherwise it
+will be added to first month payment;
+In Narnia, first time buyers don't pay stamp duty, other buyers pay stamp duty on monthly payment;
+
+In Wonderland, buys pay stamp duty on loan principal and it will be collected on the first month payment
+as well as the applciaiton fee.

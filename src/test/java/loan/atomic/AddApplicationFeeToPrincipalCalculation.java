@@ -5,10 +5,10 @@ import loan.domain.Worksheet;
 
 import java.math.BigDecimal;
 
-public class TotalCalculation implements Function<Worksheet, Worksheet> {
+public class AddApplicationFeeToPrincipalCalculation implements Function<Worksheet, Worksheet> {
     @Override
     public Worksheet apply(Worksheet worksheet) {
-        worksheet.setPrincipal(worksheet.getPrincipal().add(new BigDecimal(100)));
+        worksheet.setPrincipal(worksheet.getPrincipal().add(worksheet.getApplicationFee()));
         return worksheet;
     }
 }

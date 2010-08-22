@@ -39,6 +39,16 @@ public class AmortizationSteps {
         worksheet.setCountryCode(countryCode);
     }
 
+    @Given("$I borrow application fee")
+     public void andIborrowApplicaitonFee() {
+        worksheet.setBorrowLoanApplicationFee(true);
+    }
+
+    @Given("application fee $fee")
+    public void andApplciationFee(BigDecimal applicaitonFee) {
+        worksheet.setApplicationFee(applicaitonFee);
+    }
+
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
         new LoanCalculation().apply(worksheet);
@@ -50,9 +60,20 @@ public class AmortizationSteps {
 
     }
 
+    @Then("first month payment is $payment")
+    public void andFirstMonthPayment(BigDecimal expected) {
+        assertEquals(expected, worksheet.getFirstMonthPayment());
+
+    }
+
     @Then("$duty stampduty")
     public void andStampDuty(BigDecimal expected) {
         assertEquals(expected, worksheet.getStampDuty());
+    }
+
+
+    @Given("new worksheet")
+    public void given(){
         worksheet = new Worksheet();
     }
 

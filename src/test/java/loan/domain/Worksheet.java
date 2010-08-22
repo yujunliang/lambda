@@ -13,6 +13,9 @@ public class Worksheet {
     private double monthPayment;
     private double stampDuty;
     private Country country;
+    private boolean borrowLoanApplicationFee;
+    private BigDecimal applicationFee;
+    private BigDecimal firstMonthPayment;
 
     public void setPrincipal(BigDecimal principal) {
         this.principal = principal;
@@ -68,5 +71,29 @@ public class Worksheet {
 
     public Country getCountry() {
         return country;
+    }
+
+    public boolean isBorrowLoanApplicationFee() {
+        return borrowLoanApplicationFee;
+    }
+
+    public void setBorrowLoanApplicationFee(boolean borrowLoanApplicationFee) {
+        this.borrowLoanApplicationFee = borrowLoanApplicationFee;
+    }
+
+    public BigDecimal getApplicationFee() {
+        return applicationFee;
+    }
+
+    public void setApplicationFee(BigDecimal applicationFee) {
+        this.applicationFee = applicationFee;
+    }
+
+    public BigDecimal getFirstMonthPayment() {
+        return firstMonthPayment;
+    }
+
+    public void setFirstMonthPayment(BigDecimal firstMonthPayment) {
+        this.firstMonthPayment = firstMonthPayment;
     }
 }
