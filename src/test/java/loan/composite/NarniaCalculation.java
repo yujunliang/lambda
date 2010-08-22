@@ -12,7 +12,7 @@ public final class NarniaCalculation extends AbstractFunction<Worksheet, Workshe
 	public NarniaCalculation() {
         super(conditional(new BorrowLoanApplicationFeePredicate(), new AddApplicationFeeToPrincipalCalculation()),
               new MonthlyPaymentCalculation(),
-              conditional(new FirstTimeBuyerPredicate(), new StampDutyOnMonthlyPayment()),
+              conditional(new NotFirstTimeBuyerPredicate(), new StampDutyOnMonthlyPayment()),
               new FirstMonthPayment(),
               conditional(new PayLoanApplicationFeePredicate(), new AddApplicationFeeToFirstMonthPaymentCalculation())
              );

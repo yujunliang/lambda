@@ -5,7 +5,7 @@ import loan.domain.Worksheet;
 
 import static algocraft.util.Logic.not;
 
-public final class FirstTimeBuyerPredicate implements Predicate<Worksheet> {
+public final class NotFirstTimeBuyerPredicate implements Predicate<Worksheet> {
 
 	@Override
 	public boolean apply(final Worksheet worksheet) {
