@@ -14,7 +14,6 @@ public class AbstractFunction<T1,T2> implements Function<T1, T2> {
 
 	private final Function<T1,T2> function;
 
-
     public AbstractFunction(Function ... functions ) {
         int length = functions.length;
 
@@ -26,7 +25,6 @@ public class AbstractFunction<T1,T2> implements Function<T1, T2> {
         }
         this.function = (Function<T1,T2>)function;
     }
-
 
 	@Override
 	public T2 apply(T1 from) {
