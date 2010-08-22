@@ -1,4 +1,4 @@
-package amortization;
+package loan;
 
 public enum Country {
 

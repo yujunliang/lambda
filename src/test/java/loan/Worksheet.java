@@ -1,4 +1,4 @@
-package amortization;
+package loan;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

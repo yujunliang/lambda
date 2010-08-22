@@ -1,4 +1,4 @@
-package amortization;
+package loan;
 
 public class FinancialCalculator {
     public static double monthlyPayment(double rate, int term, double principle) {

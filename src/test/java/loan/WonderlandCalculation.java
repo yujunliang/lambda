@@ -1,4 +1,4 @@
-package amortization;
+package loan;
 
 
 import algocraft.algorithm.engine.AbstractFunction;

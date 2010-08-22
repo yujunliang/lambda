@@ -1,10 +1,8 @@
-package amortization;
+package loan;
 
 import com.google.common.base.Function;
 
-import java.math.BigDecimal;
-
-import static amortization.FinancialCalculator.monthlyPayment;
+import static loan.FinancialCalculator.monthlyPayment;
 
 public class MonthlyPaymentCalculation implements Function<Worksheet,Worksheet>{
 

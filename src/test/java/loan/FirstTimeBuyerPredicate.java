@@ -1,7 +1,5 @@
-package amortization;
+package loan;
 
-import algocraft.util.Logic;
-import algorithm.atomic.Problem;
 import com.google.common.base.Predicate;
 
 import static algocraft.util.Logic.not;
