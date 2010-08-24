@@ -1,14 +1,12 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Worksheet;
+import loan.domain.Loan;
 
-import java.math.BigDecimal;
-
-public class AddApplicationFeeToPrincipalCalculation implements Function<Worksheet, Worksheet> {
+public class AddApplicationFeeToPrincipalCalculation implements Function<Loan, Loan> {
     @Override
-    public Worksheet apply(Worksheet worksheet) {
-        worksheet.setPrincipal(worksheet.getPrincipal().add(worksheet.getApplicationFee()));
-        return worksheet;
+    public Loan apply(Loan loan) {
+        loan.setPrincipal(loan.getPrincipal().plus(loan.getApplicationFee()));
+        return loan;
     }
 }

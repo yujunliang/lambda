@@ -14,7 +14,7 @@ public class AbstractFunction<T1,T2> implements Function<T1, T2> {
 
 	private final Function<T1,T2> function;
 
-    public AbstractFunction(Function ... functions ) {
+    protected AbstractFunction(Function ... functions ) {
         int length = functions.length;
 
         Function function = compose(functions[length-1], functions[length-2]);
@@ -27,7 +27,7 @@ public class AbstractFunction<T1,T2> implements Function<T1, T2> {
     }
 
 	@Override
-	public T2 apply(T1 from) {
+	public final T2 apply(T1 from) {
 		return function.apply(from);
 	}
 }

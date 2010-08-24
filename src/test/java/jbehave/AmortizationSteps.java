@@ -1,7 +1,9 @@
 package jbehave;
 
 import loan.composite.LoanCalculation;
-import loan.domain.Worksheet;
+import loan.domain.Amount;
+import loan.domain.Loan;
+import loan.domain.Rate;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -12,11 +14,11 @@ import static org.junit.Assert.assertEquals;
 
 public class AmortizationSteps {
 
-    private Worksheet worksheet = new Worksheet();
+    private Loan worksheet = new Loan();
 
     @Given("principal of $val")
-    public void givenPrincipal(BigDecimal principal) {
-        worksheet.setPrincipal(principal);
+    public void givenPrincipal(double principal) {
+        worksheet.setPrincipal(Amount.valueOf(principal));
     }
 
     @Given("term of $num years")
@@ -25,8 +27,8 @@ public class AmortizationSteps {
     }
 
     @Given("interest of $rate%")
-    public void givenInterestRate(BigDecimal interest) {
-        worksheet.setRate(interest);
+    public void givenInterestRate(double interest) {
+        worksheet.setRate(Rate.valueOf(interest));
     }
 
     @Given("$i am a first-time buyer")
@@ -46,7 +48,7 @@ public class AmortizationSteps {
 
     @Given("application fee $fee")
     public void andApplciationFee(BigDecimal applicaitonFee) {
-        worksheet.setApplicationFee(applicaitonFee);
+        worksheet.setApplicationFee(Amount.valueOf(applicaitonFee.doubleValue()));
     }
 
     @When("we calculate periodic payment")
@@ -56,25 +58,25 @@ public class AmortizationSteps {
 
     @Then("$payment results")
     public void thenResultingPayment(BigDecimal expected) {
-        assertEquals(expected,  worksheet.getMonthPayment());
+        assertEquals(expected,  worksheet.getMonthPayment().value());
 
     }
 
     @Then("first month payment is $payment")
     public void andFirstMonthPayment(BigDecimal expected) {
-        assertEquals(expected, worksheet.getFirstMonthPayment());
+        assertEquals(expected, worksheet.getFirstMonthPayment().value());
 
     }
 
     @Then("$duty stampduty")
     public void andStampDuty(BigDecimal expected) {
-        assertEquals(expected, worksheet.getStampDuty());
+        assertEquals(expected, worksheet.getStampDuty().value());
     }
 
 
     @Given("new worksheet")
     public void given(){
-        worksheet = new Worksheet();
+        worksheet = new Loan();
     }
 
 }

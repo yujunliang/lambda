@@ -1,12 +1,12 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Worksheet;
+import loan.domain.Loan;
 
-public class AddApplicationFeeToFirstMonthPaymentCalculation implements Function<Worksheet, Worksheet> {
+public class AddApplicationFeeToFirstMonthPaymentCalculation implements Function<Loan, Loan> {
     @Override
-    public Worksheet apply(Worksheet worksheet) {
-        worksheet.setFirstMonthPayment(worksheet.getFirstMonthPayment().add(worksheet.getApplicationFee()));
-        return worksheet;
+    public Loan apply(Loan loan) {
+        loan.setFirstMonthPayment(loan.getFirstMonthPayment().plus(loan.getApplicationFee()));
+        return loan;
     }
 }

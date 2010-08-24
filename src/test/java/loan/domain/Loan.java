@@ -5,19 +5,19 @@ import loan.domain.Country;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Worksheet {
-    private BigDecimal principal;
+public class Loan {
+    private Amount principal;
     private int term;
-    private BigDecimal rate;
+    private Rate rate;
     private boolean FTBuyer;
-    private double monthPayment;
-    private double stampDuty;
+    private Amount monthPayment;
+    private Amount stampDuty;
     private Country country;
     private boolean borrowLoanApplicationFee;
-    private BigDecimal applicationFee;
-    private BigDecimal firstMonthPayment;
+    private Amount applicationFee;
+    private Amount firstMonthPayment;
 
-    public void setPrincipal(BigDecimal principal) {
+    public void setPrincipal(Amount principal) {
         this.principal = principal;
     }
 
@@ -25,7 +25,7 @@ public class Worksheet {
         this.term = term;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(Rate rate) {
         this.rate = rate;
     }
 
@@ -37,7 +37,7 @@ public class Worksheet {
         this.country = Country.valueOf(countryCode);
     }
 
-    public BigDecimal getPrincipal() {
+    public Amount getPrincipal() {
         return principal;
     }
 
@@ -45,7 +45,7 @@ public class Worksheet {
         return FTBuyer;
     }
 
-    public BigDecimal getRate() {
+    public Rate getRate() {
         return rate;
     }
 
@@ -53,20 +53,20 @@ public class Worksheet {
         return term;
     }
 
-    public void setMonthPayment(double monthPayment) {
+    public void setMonthPayment(Amount monthPayment) {
         this.monthPayment = monthPayment;
     }
 
-    public BigDecimal getMonthPayment() {
-        return new BigDecimal(monthPayment).setScale(2, RoundingMode.HALF_UP);
+    public Amount getMonthPayment() {
+        return monthPayment;
     }
 
-    public void setStampDuty(double stampDuty) {
+    public void setStampDuty(Amount stampDuty) {
         this.stampDuty = stampDuty;
     }
 
-    public BigDecimal getStampDuty() {
-        return new BigDecimal(stampDuty).setScale(2, RoundingMode.HALF_UP);
+    public Amount getStampDuty() {
+        return stampDuty == null? Amount.valueOf(0):stampDuty;
     }
 
     public Country getCountry() {
@@ -81,19 +81,19 @@ public class Worksheet {
         this.borrowLoanApplicationFee = borrowLoanApplicationFee;
     }
 
-    public BigDecimal getApplicationFee() {
+    public Amount getApplicationFee() {
         return applicationFee;
     }
 
-    public void setApplicationFee(BigDecimal applicationFee) {
+    public void setApplicationFee(Amount applicationFee) {
         this.applicationFee = applicationFee;
     }
 
-    public BigDecimal getFirstMonthPayment() {
+    public Amount getFirstMonthPayment() {
         return firstMonthPayment;
     }
 
-    public void setFirstMonthPayment(BigDecimal firstMonthPayment) {
+    public void setFirstMonthPayment(Amount firstMonthPayment) {
         this.firstMonthPayment = firstMonthPayment;
     }
 }

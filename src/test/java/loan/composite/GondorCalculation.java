@@ -2,19 +2,20 @@ package loan.composite;
 
 
 import algocraft.algorithm.engine.AbstractFunction;
-import loan.atomic.FirstMonthPayment;
+import loan.atomic.FirstMonthPaymentCalculation;
 import loan.atomic.MonthlyPaymentCalculation;
-import loan.atomic.StampDutyOnMonthlyPayment;
-import loan.domain.Worksheet;
+import loan.atomic.StampDutyOnMonthlyPaymentCalculation;
+import loan.domain.Loan;
+import loan.domain.Rate;
 
 import java.math.BigDecimal;
 
-public final class GondorCalculation extends AbstractFunction<Worksheet, Worksheet> {
+public final class GondorCalculation extends AbstractFunction<Loan, Loan> {
 
     public GondorCalculation() {
         super(new MonthlyPaymentCalculation(),
-              new StampDutyOnMonthlyPayment(new BigDecimal(0.02)),
-              new FirstMonthPayment()
+              new StampDutyOnMonthlyPaymentCalculation(Rate.valueOf(0.02)),
+              new FirstMonthPaymentCalculation()
         );
     }
 }
