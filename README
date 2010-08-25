@@ -19,4 +19,4 @@ complex function than how individual function works. The example of wiring can b
 NarniaCalculation and WonderlandCalculation.
 
 This framework has been refactored to utilize the Function and Predicate from Google collections. They used to be
-called Solution and Applicability.
+called Solution and Applicability. Please compare TraditionalLoanCalculation.java.
