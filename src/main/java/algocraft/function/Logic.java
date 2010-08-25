@@ -1,4 +1,4 @@
-package algocraft.util;
+package algocraft.function;
 
 public final class Logic {
 	private Logic() {

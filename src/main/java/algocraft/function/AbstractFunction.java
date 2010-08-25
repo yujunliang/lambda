@@ -1,9 +1,9 @@
-package algocraft.algorithm.engine;
+package algocraft.function;
 
 
 import com.google.common.base.Function;
 
-import static algocraft.algorithm.engine.Functions.conditional;
+import static algocraft.function.Functions.conditional;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class AbstractFunction<T1,T2> implements Function<T1, T2> {

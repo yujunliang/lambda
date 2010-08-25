@@ -1,4 +1,4 @@
-package algocraft.algorithm.engine;
+package algocraft.function;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;

@@ -3,7 +3,7 @@ package loan.atomic;
 import com.google.common.base.Predicate;
 import loan.domain.Loan;
 
-import static algocraft.util.Logic.not;
+import static algocraft.function.Logic.not;
 
 public enum NotFirstTimeBuyerPredicate implements Predicate<Loan> {
     INSTANCE;
