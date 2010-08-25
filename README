@@ -1,4 +1,4 @@
-Compalgo is an lightweight framework helping you to split complex business login and rules into individual atomic
+Compalgo is a lightweight framework helping you to split complex business login and rules into individual atomic
 functions and assemble them together to any complexity level. It has been refactored to utilize the Function
 and Predicate from Google collections. They used to becalled Solution and Applicability.
 Please check LoanStory.java and LoanCalculation.java for example and compare TraditionalLoanCalculation.java.
