@@ -3,8 +3,8 @@ package loan.atomic;
 import com.google.common.base.Function;
 import loan.domain.Loan;
 
-public class FirstMonthPaymentCalculation implements Function<Loan, Loan>{
-
+public enum FirstMonthPaymentCalculation implements Function<Loan, Loan>{
+    INSTANCE;
     @Override
     public Loan apply(Loan loan) {
 

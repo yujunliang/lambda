@@ -5,7 +5,5 @@ public enum Country {
     GD,
     NR,
     WL,
-    ;
-
-      
+    ;      
 }

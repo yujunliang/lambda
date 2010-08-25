@@ -5,8 +5,8 @@ import loan.domain.Loan;
 
 import static algocraft.util.Logic.not;
 
-public final class PayLoanApplicationFeePredicate implements Predicate<Loan> {
-
+public enum PayLoanApplicationFeePredicate implements Predicate<Loan> {
+    INSTANCE;
 	@Override
 	public boolean apply(final Loan loan) {
 		return not(loan.isBorrowLoanApplicationFee());

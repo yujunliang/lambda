@@ -8,14 +8,19 @@ import loan.atomic.StampDutyOnMonthlyPaymentCalculation;
 import loan.domain.Loan;
 import loan.domain.Rate;
 
-import java.math.BigDecimal;
+import static algocraft.algorithm.engine.Functions.left;
+import static loan.domain.Rate.valueOf;
 
 public final class GondorCalculation extends AbstractFunction<Loan, Loan> {
 
     public GondorCalculation() {
-        super(new MonthlyPaymentCalculation(),
-              new StampDutyOnMonthlyPaymentCalculation(Rate.valueOf(0.02)),
-              new FirstMonthPaymentCalculation()
+        super(
+              left(
+                   left(MonthlyPaymentCalculation.INSTANCE,
+                        new StampDutyOnMonthlyPaymentCalculation(valueOf(0.02))
+                   ),
+                   FirstMonthPaymentCalculation.INSTANCE
+              )
         );
     }
 }

@@ -5,8 +5,8 @@ import loan.domain.Loan;
 
 import static algocraft.util.Logic.not;
 
-public final class NotFirstTimeBuyerPredicate implements Predicate<Loan> {
-
+public enum NotFirstTimeBuyerPredicate implements Predicate<Loan> {
+    INSTANCE;
 	@Override
 	public boolean apply(final Loan loan) {
 		return not(loan.isFTBuyer());

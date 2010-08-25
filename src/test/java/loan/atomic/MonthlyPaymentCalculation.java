@@ -6,8 +6,8 @@ import loan.domain.Loan;
 
 import static loan.domain.FinancialCalculator.monthlyPayment;
 
-public class MonthlyPaymentCalculation implements Function<Loan, Loan>{
-
+public enum MonthlyPaymentCalculation implements Function<Loan, Loan>{
+    INSTANCE;
     @Override
     public Loan apply(Loan loan) {
         loan.setMonthPayment(

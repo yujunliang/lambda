@@ -8,12 +8,19 @@ import loan.atomic.StampDutyOnPrincipalCalculation;
 import loan.domain.Loan;
 import loan.domain.Rate;
 
+import static algocraft.algorithm.engine.Functions.left;
+import static loan.domain.Rate.valueOf;
+
 public final class WonderlandCalculation extends AbstractFunction<Loan, Loan> {
 
     public WonderlandCalculation() {
-        super(new MonthlyPaymentCalculation(),
-              new StampDutyOnPrincipalCalculation(Rate.valueOf(0.03)),
-              new FirstMonthPaymentCalculation()
+        super(
+              left(
+                   left(MonthlyPaymentCalculation.INSTANCE,
+                        new StampDutyOnPrincipalCalculation(valueOf(0.03))
+                   ),
+                   FirstMonthPaymentCalculation.INSTANCE
+              )
         );
     }
 }
