@@ -13,13 +13,10 @@ import static loan.domain.Rate.valueOf;
 public final class GondorCalculation extends AbstractFunction<Loan, Loan> {
 
     public GondorCalculation() {
-        super(
-              compose(
-                   compose(MonthlyPaymentCalculation.INSTANCE,
-                        new StampDutyOnMonthlyPaymentCalculation(valueOf(0.02))
-                   ),
-                   FirstMonthPaymentCalculation.INSTANCE
-              )
-        );
+        super(compose(
+              MonthlyPaymentCalculation.INSTANCE,
+              new StampDutyOnMonthlyPaymentCalculation(valueOf(0.02)),
+              FirstMonthPaymentCalculation.INSTANCE
+        ));
     }
 }

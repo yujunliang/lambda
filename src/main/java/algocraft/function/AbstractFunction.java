@@ -10,7 +10,7 @@ public class AbstractFunction<T1,T2> implements Function<T1, T2> {
 
 	private final Function<T1,T2> function;
 
-    protected AbstractFunction(Function function ) {
+    protected AbstractFunction(Function<T1, T2> function ) {
         this.function = function;
     }
 

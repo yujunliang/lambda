@@ -10,18 +10,30 @@ import com.google.common.base.Predicate;
  * @author yujunliang
  */
 public class Functions {
+
 	public static <A> Function<A,A> conditional(Predicate<A> predicate, Function<A, A> function) {
-		return new ConditionalFunction(function, predicate);
+		return new ConditionalFunction<A>(function, predicate);
 	}
 
 	public static <A,B> Function<A,B> conditional(Predicate<A> predicate, Function<A, B> ifFunction, Function<A,B> elseFunction) {
-		return new OtherwiseFunction(predicate, ifFunction, elseFunction);
+		return new OtherwiseFunction<A,B>(predicate, ifFunction, elseFunction);
 	}
 
-    public static <A, B, C> Function<A,C> compose(Function<A,B> function1, Function<B, C> function2) {
-        return com.google.common.base.Functions.compose(function2, function1);
+    public static <A, B, C> Function<A,C> compose(Function<A,B> f1, Function<B, C> f2) {
+        return com.google.common.base.Functions.compose(f2, f1);
     }
 
+    public static <A, B, C, D> Function<A,D> compose(Function<A,B> f1, Function<B, C> f2, Function<C, D> f3) {
+        return compose(compose(f1, f2), f3);
+    }
+
+    public static <A, B, C, D, E> Function<A,E> compose(Function<A,B> f1, Function<B, C> f2, Function<C, D> f3, Function<D,E> f4) {
+        return compose(compose(compose(f1, f2), f3), f4);
+    }
+
+    public static <A, B, C, D, E, F> Function<A,F> compose(Function<A,B> f1, Function<B, C> f2, Function<C, D> f3, Function<D,E> f4, Function<E,F> f5) {
+        return compose(compose(compose(compose(f1, f2), f3), f4), f5);
+    }
     /**
      * Created by cosmin on Aug 11, 2010
      */

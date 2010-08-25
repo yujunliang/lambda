@@ -15,10 +15,9 @@ public final class WonderlandCalculation extends AbstractFunction<Loan, Loan> {
     public WonderlandCalculation() {
         super(
               compose(
-                   compose(MonthlyPaymentCalculation.INSTANCE,
-                        new StampDutyOnPrincipalCalculation(valueOf(0.03))
-                   ),
-                   FirstMonthPaymentCalculation.INSTANCE
+                        MonthlyPaymentCalculation.INSTANCE,
+                        new StampDutyOnPrincipalCalculation(valueOf(0.03)),
+                        FirstMonthPaymentCalculation.INSTANCE
               )
         );
     }
