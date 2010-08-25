@@ -1,6 +1,7 @@
 package jbehave;
 
 import loan.composite.LoanCalculation;
+import loan.composite.TranditionalLoanCalculation;
 import loan.domain.Amount;
 import loan.domain.Loan;
 import loan.domain.Rate;
@@ -54,6 +55,7 @@ public class AmortizationSteps {
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
         new LoanCalculation().apply(worksheet);
+        //TranditionalLoanCalculation.calculate(worksheet);
     }
 
     @Then("$payment results")
