@@ -7,6 +7,7 @@ import loan.domain.Loan;
 
 import static algocraft.function.Functions.conditional;
 import static algocraft.function.Functions.compose;
+import static com.google.common.base.Predicates.not;
 import static loan.domain.Rate.valueOf;
 
 public final class NarniaCalculation extends AbstractFunction<Loan, Loan> {
@@ -23,7 +24,7 @@ public final class NarniaCalculation extends AbstractFunction<Loan, Loan> {
                         ),
                         FirstMonthPaymentCalculation.INSTANCE
                    ),
-                   conditional(PayLoanApplicationFeePredicate.INSTANCE, AddApplicationFeeToFirstMonthPaymentCalculation.INSTANCE)
+                   conditional(not(BorrowLoanApplicationFeePredicate.INSTANCE), AddApplicationFeeToFirstMonthPaymentCalculation.INSTANCE)
               )
         );
 	}
