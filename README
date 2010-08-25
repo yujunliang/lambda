@@ -1,10 +1,13 @@
-Please check LoanStory.java and LoanCalculation.java for example.
+Compalgo is an lightweight framework helping you to split complex business login and rules into individual atomic
+functions and assemble them together to any complexity level. It has been refactored to utilize the Function
+and Predicate from Google collections. They used to becalled Solution and Applicability.
+Please check LoanStory.java and LoanCalculation.java for example and compare TraditionalLoanCalculation.java.
 
-This story demonstrates how to use Compalgo to solve the following complex business problems.
+The LoanStory.java demonstrates how to use Compalgo to solve the following complex business problems.
 
 In Narnia, if buyers borrow applcation fee, the applcation fee will be added to loan principal, otherwise it
-will be added to first month payment, first time buyers don't pay stamp duty, other buyers pay stamp duty on monthly payment,
-the rate is 3% of the monthly payment.
+will be added to first month payment, first time buyers don't pay stamp duty, other buyers pay stamp duty on
+monthly payment,the rate is 3% of the monthly payment.
 
 In Wonderland, buyers pay stamp duty on loan principal the rate is 3% of the principal and it will
 be collected on the first month payment as well as the applciaiton fee.
@@ -18,5 +21,3 @@ When learning this framework, please pay more attention to how to wire atomic fu
 complex function than how individual function works. The example of wiring can be found in GondorCalculation,
 NarniaCalculation and WonderlandCalculation.
 
-This framework has been refactored to utilize the Function and Predicate from Google collections. They used to be
-called Solution and Applicability. Please compare TraditionalLoanCalculation.java.
