@@ -6,17 +6,17 @@ import loan.atomic.*;
 import loan.domain.Loan;
 
 import static algocraft.function.Functions.conditional;
-import static algocraft.function.Functions.left;
+import static algocraft.function.Functions.compose;
 import static loan.domain.Rate.valueOf;
 
 public final class NarniaCalculation extends AbstractFunction<Loan, Loan> {
 
 	public NarniaCalculation() {
         super(
-              left(
-                   left(
-                        left(
-                             left(conditional(BorrowLoanApplicationFeePredicate.INSTANCE, AddApplicationFeeToPrincipalCalculation.INSTANCE),
+              compose(
+                   compose(
+                        compose(
+                             compose(conditional(BorrowLoanApplicationFeePredicate.INSTANCE, AddApplicationFeeToPrincipalCalculation.INSTANCE),
                                   MonthlyPaymentCalculation.INSTANCE
                              ),
                              conditional(NotFirstTimeBuyerPredicate.INSTANCE, new StampDutyOnMonthlyPaymentCalculation(valueOf(0.03)))

@@ -17,3 +17,6 @@ Note,
 When learning this framework, please pay more attention to how to wire atomic function into a
 complex function than how individual function works. The example of wiring can be found in GondorCalculation,
 NarniaCalculation and WonderlandCalculation.
+
+This framework has been refactored to utilize the Function and Predicate from Google collections. They used to be
+called Solution and Applicability.
