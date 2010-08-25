@@ -20,7 +20,7 @@ public final class NarniaCalculation extends AbstractFunction<Loan, Loan> {
                              compose(conditional(BorrowLoanApplicationFeePredicate.INSTANCE, AddApplicationFeeToPrincipalCalculation.INSTANCE),
                                   MonthlyPaymentCalculation.INSTANCE
                              ),
-                             conditional(NotFirstTimeBuyerPredicate.INSTANCE, new StampDutyOnMonthlyPaymentCalculation(valueOf(0.03)))
+                             conditional(not(FirstTimeBuyerPredicate.INSTANCE), new StampDutyOnMonthlyPaymentCalculation(valueOf(0.03)))
                         ),
                         FirstMonthPaymentCalculation.INSTANCE
                    ),
