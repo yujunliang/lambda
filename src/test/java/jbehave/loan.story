@@ -1,67 +1,13 @@
-Given new worksheet
-And principal of 100000
-And i am a first-time buyer
-And term of 10 years
-And interest of 3.7%
-And I am in WL
+Given <term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> application fee <applicationfee>
 When we calculate periodic payment
-Then 3747.90 results
-And 3000.00 stampduty
-And first month payment is 6747.90
+Then monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>
 
-Given new worksheet
-And principal of 200000
-And term of 10 years
-And interest of 4.7%
-And I am in NR
-And i am a first-time buyer
-And I borrow application fee
-And application fee 100
-When we calculate periodic payment
-Then 9442.85 results
-And 0.00 stampduty
-And first month payment is 9442.85
+Examples:
 
-Given new worksheet
-And principal of 10000000
-And term of 10 years
-And interest of 10.7%
-And I am in NR
-And application fee 100
-When we calculate periodic payment
-Then 1070005.39 results
-And 32100.16 stampduty
-And first month payment is 1102205.55
-
-Given new worksheet
-And principal of 100000
-And term of 10 years
-And interest of 3.7%
-And I am in NR
-And application fee 500
-When we calculate periodic payment
-Then 3747.90 results
-And 112.44 stampduty
-And first month payment is 4360.34
-
-Given new worksheet
-And principal of 100000
-And i am a first-time buyer
-And term of 10 years
-And interest of 3.7%
-And I am in WL
-When we calculate periodic payment
-Then 3747.90 results
-And 3000.00 stampduty
-And first month payment is 6747.90
-
-Given new worksheet
-And principal of 100000
-And i am a first-time buyer
-And term of 10 years
-And interest of 3.7%
-And I am in GD
-When we calculate periodic payment
-Then 3747.90 results
-And 74.96 stampduty
-And first month payment is 3822.86
+|term|amount|rate|country|buyer|borrowed|applicationfee|payment|stampduty|first  |
+|10  |100000|3.7 |WL     |     |        |0.00          |3747.90|3000.00  |6747.90|
+|10  |200000|4.7 |NR     |     |borrowed|100.00        |9442.85|0.00     |9442.85|
+|10  |10000000|10.7 |NR  |non  |        |100.00        |1070005.39|32100.16|1102205.55|
+|10  |100000|3.7 |NR     |non  |        |500.00        |3747.90|112.44     |4360.34|
+|10  |100000|3.7 |WL     |     |        |0.00          |3747.90|3000.00     |6747.90|
+|10  |100000|3.7 |GD     |     |        |0.00          |3747.90|74.96     |3822.86|
