@@ -9,7 +9,7 @@ import static loan.domain.Country.*;
 public class LoanCalculation extends CaseFunction<Loan, Loan, Country> {
 
     public LoanCalculation() {
-        super(new GetCountryFromLoan(),
+        super(GetCountryFromLoan.INSTANCE,
                 GD, new GondorCalculation(),
                 NR, new NarniaCalculation(),
                 WL, new WonderlandCalculation());

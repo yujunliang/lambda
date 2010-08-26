@@ -26,7 +26,7 @@ public class AmortizationSteps {
         loan.setPrincipal(Amount.valueOf(principal));
         loan.setTerm(term);
         loan.setCountryCode(countryCode);
-        loan.setFTBuyer(firstTimeBuyer.equals(""));
+        loan.setFirstTimeBuyer(firstTimeBuyer.equals(""));
         loan.setBorrowLoanApplicationFee(borrowed.equals(""));
         loan.setApplicationFee(Amount.valueOf(fee));
 
@@ -44,7 +44,6 @@ public class AmortizationSteps {
         assertEquals(payment,  loan.getMonthPayment().value());
         assertEquals(firstMonthPayment, loan.getFirstMonthPayment().value());
         assertEquals(stampduty, loan.getStampDuty().value());
-
     }
 
 }

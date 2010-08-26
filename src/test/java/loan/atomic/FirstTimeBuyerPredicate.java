@@ -7,6 +7,6 @@ public enum FirstTimeBuyerPredicate implements Predicate<Loan> {
     INSTANCE;
 	@Override
 	public boolean apply(final Loan loan) {
-		return loan.isFTBuyer();
+		return loan.isFirstTimeBuyer();
 	}
 }

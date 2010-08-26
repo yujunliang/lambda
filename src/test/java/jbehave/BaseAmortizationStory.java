@@ -34,7 +34,7 @@ public abstract class BaseAmortizationStory extends JUnitStory {
     private static Paranamer paranamer = new CachingParanamer(new BytecodeReadingParanamer());
     
     public BaseAmortizationStory() {
-        configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
+        configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
                 .doIgnoreFailureInView(true);
     }
 

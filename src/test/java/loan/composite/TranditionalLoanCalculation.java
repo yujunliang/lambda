@@ -38,7 +38,7 @@ public class TranditionalLoanCalculation {
                            loan.getPrincipal().doubleValue())
                    )
            );
-           if (!loan.isFTBuyer()) {
+           if (!loan.isFirstTimeBuyer()) {
                loan.setStampDuty(
                     loan.getMonthPayment().multiply(Rate.valueOf(0.03))
                );

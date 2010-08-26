@@ -1,15 +1,10 @@
 package loan.domain;
 
-import loan.domain.Country;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class Loan {
     private Amount principal;
     private int term;
     private Rate rate;
-    private boolean FTBuyer;
+    private boolean firstTimerBuyer;
     private Amount monthPayment;
     private Amount stampDuty;
     private Country country;
@@ -29,8 +24,8 @@ public class Loan {
         this.rate = rate;
     }
 
-    public void setFTBuyer(boolean FTBuyer) {
-        this.FTBuyer = FTBuyer;
+    public void setFirstTimeBuyer(boolean firstTimeBuyer) {
+        this.firstTimerBuyer = firstTimeBuyer;
     }
 
     public void setCountryCode(String countryCode) {
@@ -41,8 +36,8 @@ public class Loan {
         return principal;
     }
 
-    public boolean isFTBuyer() {
-        return FTBuyer;
+    public boolean isFirstTimeBuyer() {
+        return firstTimerBuyer;
     }
 
     public Rate getRate() {
