@@ -25,9 +25,14 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.SilentStepMonitor;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
+import org.jbehave.paranamer.BytecodeReadingParanamer;
+import org.jbehave.paranamer.CachingParanamer;
+import org.jbehave.paranamer.Paranamer;
 
 public abstract class BaseAmortizationStory extends JUnitStory {
 
+    private static Paranamer paranamer = new CachingParanamer(new BytecodeReadingParanamer());
+    
     public BaseAmortizationStory() {
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
                 .doIgnoreFailureInView(true);
@@ -39,6 +44,7 @@ public abstract class BaseAmortizationStory extends JUnitStory {
         Properties viewResources = new Properties();
         viewResources.put("decorateNonHtml", "true");
         return new MostUsefulConfiguration()
+            .useParanamer(paranamer)
             .useStoryLoader(new LoadFromClasspath(embeddableClass))
             .useStoryPathResolver(new UnderscoredCamelCaseResolver().removeFromClassName("Story"))
             .useStoryReporterBuilder(new StoryReporterBuilder()

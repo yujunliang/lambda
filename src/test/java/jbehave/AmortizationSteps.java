@@ -17,18 +17,18 @@ public class AmortizationSteps {
 
     private Loan loan;
 
-    @Given("<term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> application fee <applicationfee>")
+    @Given("<term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
     public void aStock(@Named("term") int term, @Named("amount") double principal, @Named("rate") double interest,
                        @Named("country")String countryCode, @Named("buyer") String  firstTimeBuyer,
-                       @Named("borrowed") String borrowed, @Named("applicationfee") double applicationFee) {
+                       @Named("borrowed") String borrowed, @Named("fee") double fee) {
         loan = new Loan();
         loan.setRate(Rate.valueOf(interest));
         loan.setPrincipal(Amount.valueOf(principal));
         loan.setTerm(term);
         loan.setCountryCode(countryCode);
         loan.setFTBuyer(firstTimeBuyer.equals(""));
-        loan.setBorrowLoanApplicationFee(!borrowed.equals(""));
-        loan.setApplicationFee(Amount.valueOf(applicationFee));
+        loan.setBorrowLoanApplicationFee(borrowed.equals(""));
+        loan.setApplicationFee(Amount.valueOf(fee));
 
     }
 
