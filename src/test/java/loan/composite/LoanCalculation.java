@@ -1,6 +1,7 @@
 package loan.composite;
 
 import algocraft.function.CaseFunction;
+import loan.atomic.GetCountryFromLoan;
 import loan.domain.Country;
 import loan.domain.Loan;
 
