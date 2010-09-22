@@ -1,4 +1,4 @@
-package loan.composite;
+package loan.traditional;
 
 import loan.domain.Amount;
 import loan.domain.Country;
