@@ -4,15 +4,15 @@ import com.google.common.base.Function;
 import loan.domain.Amount;
 import loan.domain.Loan;
 
-import static loan.domain.FinancialCalculator.monthlyPayment;
+import static loan.domain.FinancialCalculator.monthlyLoanPayment;
 
-public enum MonthlyPaymentCalculation implements Function<Loan, Loan>{
+public enum MonthlyLoanPaymentCalculation implements Function<Loan, Loan>{
     INSTANCE;
     @Override
     public Loan apply(Loan loan) {
         loan.setMonthPayment(
                Amount.valueOf(
-                       monthlyPayment(loan.getRate().doubleValue(),
+                       monthlyLoanPayment(loan.getRate().doubleValue(),
                                loan.getTerm()*12,
                                loan.getPrincipal().doubleValue())
                        )

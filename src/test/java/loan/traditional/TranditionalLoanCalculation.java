@@ -2,70 +2,70 @@ package loan.traditional;
 
 import loan.domain.Amount;
 import loan.domain.Country;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 import loan.domain.Rate;
 
-import static loan.domain.FinancialCalculator.monthlyPayment;
+import static loan.domain.FinancialCalculator.monthlyLoanPayment;
 
 public class TranditionalLoanCalculation {
-    public static void calculate(Loan loan) {
+    public static void calculate(FinancialInstrument financialInstrument) {
 
-       if (loan.getCountry() == Country.GD) {
-           loan.setMonthPayment(
+       if (financialInstrument.getCountry() == Country.GD) {
+           financialInstrument.setMonthPayment(
                Amount.valueOf(
-                       monthlyPayment(loan.getRate().doubleValue(),
-                               loan.getTerm()*12,
-                               loan.getPrincipal().doubleValue())
+                       monthlyLoanPayment(financialInstrument.getRate().doubleValue(),
+                               financialInstrument.getTerm()*12,
+                               financialInstrument.getPrincipal().doubleValue())
                )
            );
-           loan.setStampDuty(
-                loan.getMonthPayment().multiply(Rate.valueOf(0.02))
+           financialInstrument.setStampDuty(
+                financialInstrument.getMonthPayment().multiply(Rate.valueOf(0.02))
            );
-           loan.setFirstMonthPayment(
-                loan.getMonthPayment().plus(
-                        loan.getStampDuty()
+           financialInstrument.setFirstMonthPayment(
+                financialInstrument.getMonthPayment().plus(
+                        financialInstrument.getStampDuty()
                 )
 
         );
-       } else if (loan.getCountry() == Country.NR) {
-           if (loan.isBorrowLoanApplicationFee()) {
-               loan.setPrincipal(loan.getPrincipal().plus(loan.getApplicationFee()));
+       } else if (financialInstrument.getCountry() == Country.NR) {
+           if (financialInstrument.isBorrowLoanApplicationFee()) {
+               financialInstrument.setPrincipal(financialInstrument.getPrincipal().plus(financialInstrument.getApplicationFee()));
            }
-           loan.setMonthPayment(
+           financialInstrument.setMonthPayment(
                Amount.valueOf(
-                   monthlyPayment(loan.getRate().doubleValue(),
-                           loan.getTerm()*12,
-                           loan.getPrincipal().doubleValue())
+                   monthlyLoanPayment(financialInstrument.getRate().doubleValue(),
+                           financialInstrument.getTerm()*12,
+                           financialInstrument.getPrincipal().doubleValue())
                    )
            );
-           if (!loan.isFirstTimeBuyer()) {
-               loan.setStampDuty(
-                    loan.getMonthPayment().multiply(Rate.valueOf(0.03))
+           if (!financialInstrument.isFirstTimeBuyer()) {
+               financialInstrument.setStampDuty(
+                    financialInstrument.getMonthPayment().multiply(Rate.valueOf(0.03))
                );
            }
-           loan.setFirstMonthPayment(
-                loan.getMonthPayment().plus(
-                    loan.getStampDuty()
+           financialInstrument.setFirstMonthPayment(
+                financialInstrument.getMonthPayment().plus(
+                    financialInstrument.getStampDuty()
                  )
            );
-           if (!loan.isBorrowLoanApplicationFee()) {
-               loan.setFirstMonthPayment(loan.getFirstMonthPayment().plus(loan.getApplicationFee()));
+           if (!financialInstrument.isBorrowLoanApplicationFee()) {
+               financialInstrument.setFirstMonthPayment(financialInstrument.getFirstMonthPayment().plus(financialInstrument.getApplicationFee()));
            }
 
-       } else if (loan.getCountry() == Country.WL) {
-           loan.setMonthPayment(
+       } else if (financialInstrument.getCountry() == Country.WL) {
+           financialInstrument.setMonthPayment(
                Amount.valueOf(
-                       monthlyPayment(loan.getRate().doubleValue(),
-                               loan.getTerm()*12,
-                               loan.getPrincipal().doubleValue())
+                       monthlyLoanPayment(financialInstrument.getRate().doubleValue(),
+                               financialInstrument.getTerm()*12,
+                               financialInstrument.getPrincipal().doubleValue())
                        )
            );
-           loan.setStampDuty(
-                loan.getPrincipal().multiply(Rate.valueOf(0.03))
+           financialInstrument.setStampDuty(
+                financialInstrument.getPrincipal().multiply(Rate.valueOf(0.03))
            );
-           loan.setFirstMonthPayment(
-                loan.getMonthPayment().plus(
-                        loan.getStampDuty()
+           financialInstrument.setFirstMonthPayment(
+                financialInstrument.getMonthPayment().plus(
+                        financialInstrument.getStampDuty()
                 )
 
            );

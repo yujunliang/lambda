@@ -6,15 +6,16 @@ import loan.atomic.FirstMonthPaymentCalculation;
 import loan.atomic.MonthlyLeasePaymentCalculation;
 import loan.atomic.MonthlyLoanPaymentCalculation;
 import loan.atomic.StampDutyOnPrincipalCalculation;
+import loan.domain.Lease;
 import loan.domain.Loan;
 
 import static loan.domain.Rate.valueOf;
 
-public final class WonderlandCalculation extends CompositeFunction<Loan, Loan> {
+public final class WonderlandLeaseCalculation extends CompositeFunction<Lease, Lease> {
 
-    public WonderlandCalculation() {
+    public WonderlandLeaseCalculation() {
         super(
-              MonthlyLoanPaymentCalculation.INSTANCE,
+              MonthlyLeasePaymentCalculation.INSTANCE,
               new StampDutyOnPrincipalCalculation(valueOf(0.03)),
               new FirstMonthPaymentCalculation()
         );

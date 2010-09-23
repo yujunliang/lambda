@@ -77,4 +77,9 @@ public class Amount {
     public BigDecimal value() {
         return amount;
     }
+
+    public Amount minus(Amount amount) {
+        double p = amount == null ? 0: amount.doubleValue();
+		return Amount.valueOf(doubleValue() - p);
+    }
 }

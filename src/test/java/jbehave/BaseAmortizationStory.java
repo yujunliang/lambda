@@ -1,15 +1,5 @@
 package jbehave;
 
-import static org.jbehave.core.reporters.StoryReporterBuilder.Format.CONSOLE;
-import static org.jbehave.core.reporters.StoryReporterBuilder.Format.HTML;
-import static org.jbehave.core.reporters.StoryReporterBuilder.Format.TXT;
-import static org.jbehave.core.reporters.StoryReporterBuilder.Format.XML;
-
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Properties;
-
-import jbehave.AmortizationSteps;
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -18,22 +8,30 @@ import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.UnderscoredCamelCaseResolver;
 import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.parsers.RegexPrefixCapturingPatternParser;
-import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.reporters.FilePrintStreamFactory.ResolveToPackagedName;
+import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.CandidateSteps;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
-import org.jbehave.core.steps.SilentStepMonitor;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
+import org.jbehave.core.steps.SilentStepMonitor;
 import org.jbehave.paranamer.BytecodeReadingParanamer;
 import org.jbehave.paranamer.CachingParanamer;
 import org.jbehave.paranamer.Paranamer;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Properties;
+
+import static org.jbehave.core.reporters.StoryReporterBuilder.Format.*;
+
 public abstract class BaseAmortizationStory extends JUnitStory {
 
     private static Paranamer paranamer = new CachingParanamer(new BytecodeReadingParanamer());
-    
-    public BaseAmortizationStory() {
+    private final Object steps;
+
+    public BaseAmortizationStory(Object steps) {
+        this.steps = steps;
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
                 .doIgnoreFailureInView(true);
     }
@@ -62,7 +60,7 @@ public abstract class BaseAmortizationStory extends JUnitStory {
 
     @Override
     public List<CandidateSteps> candidateSteps() {
-        return new InstanceStepsFactory(configuration(), new AmortizationSteps()
+        return new InstanceStepsFactory(configuration(), steps
            ).createCandidateSteps();
     }
 

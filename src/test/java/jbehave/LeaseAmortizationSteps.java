@@ -1,11 +1,11 @@
 package jbehave;
 
+import loan.composite.LeaseCalculation;
 import loan.composite.LoanCalculation;
 import loan.domain.Amount;
-import loan.domain.Loan;
+import loan.domain.Lease;
 import loan.domain.Rate;
 import org.jbehave.core.annotations.Given;
-import org.jbehave.core.annotations.Named;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
@@ -13,18 +13,19 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-public class AmortizationSteps {
+public class LeaseAmortizationSteps {
 
-    private Loan loan;
+    private Lease loan;
 
-    @Given("<term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
-    public void given(int term,  double amount, double rate, String country, String  buyer, String borrowed, double fee) {
-        loan = new Loan();
+    @Given("<term> year lease of <amount> with <residual_value> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
+    public void given(int term,  double amount, double residual_value, double rate, String country, String  buyer, String borrowed, double fee) {
+        loan = new Lease();
         loan.setRate(Rate.valueOf(rate));
         loan.setPrincipal(Amount.valueOf(amount));
         loan.setTerm(term);
         loan.setCountryCode(country);
         loan.setFirstTimeBuyer(buyer.equals(""));
+        loan.setResidualValue(Amount.valueOf(residual_value));
         loan.setBorrowLoanApplicationFee(borrowed.equals(""));
         loan.setApplicationFee(Amount.valueOf(fee));
 
@@ -32,7 +33,7 @@ public class AmortizationSteps {
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-        new LoanCalculation().apply(loan);
+        new LeaseCalculation().apply(loan);
         //TranditionalLoanCalculation.calculate(loan);
     }
 

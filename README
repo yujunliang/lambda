@@ -7,11 +7,11 @@ solution without using the framework.
 
 The LoanStory.java demonstrates how to use Compalgo to solve the following complex business problems.
 
-    In Narnia, if the buyers borrow the application fee, the application fee will be added to the loan principal, otherwise it
+    In Narnia, if the buyers borrow the application fee, the application fee will be added to the financialInstrument principal, otherwise it
     will be added to the first month payment; first time buyers don't pay stamp duty, other buyers pay stamp duty on
     the monthly payment at the rate is 3%.
 
-    In Wonderland, the buyers pay stamp duty on the loan principal at the rate of 3% and it will
+    In Wonderland, the buyers pay stamp duty on the financialInstrument principal at the rate of 3% and it will
     be collected on the first month payment, together with the application fee.
 
     In Gondor, the buyers pay stamp duty on the monthly payment at the rate of 2%. The

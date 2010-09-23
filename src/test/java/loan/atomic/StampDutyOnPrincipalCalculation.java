@@ -1,10 +1,10 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 import loan.domain.Rate;
 
-public class StampDutyOnPrincipalCalculation implements Function<Loan, Loan>{
+public class StampDutyOnPrincipalCalculation<T extends FinancialInstrument> implements Function<T, T>{
     private final Rate rate;
 
     public StampDutyOnPrincipalCalculation(Rate rate) {
@@ -12,10 +12,10 @@ public class StampDutyOnPrincipalCalculation implements Function<Loan, Loan>{
     }
 
     @Override
-    public Loan apply(Loan loan) {
-        loan.setStampDuty(
-                loan.getPrincipal().multiply(rate)
+    public T apply(T financialInstrument) {
+        financialInstrument.setStampDuty(
+                financialInstrument.getPrincipal().multiply(rate)
         );
-        return loan;
+        return financialInstrument;
     }
 }

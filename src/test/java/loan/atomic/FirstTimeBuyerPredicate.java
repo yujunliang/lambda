@@ -1,12 +1,12 @@
 package loan.atomic;
 
 import com.google.common.base.Predicate;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 
-public enum FirstTimeBuyerPredicate implements Predicate<Loan> {
-    INSTANCE;
+public class FirstTimeBuyerPredicate<T extends FinancialInstrument> implements Predicate<T> {
+
 	@Override
-	public boolean apply(final Loan loan) {
-		return loan.isFirstTimeBuyer();
+	public boolean apply(final T financialInstrument) {
+		return financialInstrument.isFirstTimeBuyer();
 	}
 }

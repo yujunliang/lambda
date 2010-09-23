@@ -1,12 +1,12 @@
 package loan.atomic;
 
 import com.google.common.base.Predicate;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 
-public enum BorrowLoanApplicationFeePredicate implements Predicate<Loan> {
+public enum BorrowLoanApplicationFeePredicate implements Predicate<FinancialInstrument> {
     INSTANCE;
 	@Override
-	public boolean apply(final Loan loan) {
-		return loan.isBorrowLoanApplicationFee();
+	public boolean apply(final FinancialInstrument financialInstrument) {
+		return financialInstrument.isBorrowLoanApplicationFee();
 	}
 }

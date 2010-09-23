@@ -1,20 +1,19 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 
-public enum FirstMonthPaymentCalculation implements Function<Loan, Loan> {
-    INSTANCE;
+public class FirstMonthPaymentCalculation<T1 extends FinancialInstrument> implements Function<T1, T1> {
 
     @Override
-    public Loan apply(Loan loan) {
+    public T1 apply(T1 financialInstrument) {
 
-        loan.setFirstMonthPayment(
-                loan.getMonthPayment().plus(
-                        loan.getStampDuty()
+        financialInstrument.setFirstMonthPayment(
+                financialInstrument.getMonthPayment().plus(
+                        financialInstrument.getStampDuty()
                 )
 
         );
-        return loan;
+        return financialInstrument;
     }
 }

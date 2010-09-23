@@ -1,14 +1,13 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Loan;
+import loan.domain.FinancialInstrument;
 
-public enum AddApplicationFeeToFirstMonthPaymentCalculation implements Function<Loan, Loan> {
-    INSTANCE;
+public class AddApplicationFeeToFirstMonthPaymentCalculation<T1 extends FinancialInstrument> implements Function<T1, T1> {
     
     @Override
-    public Loan apply(Loan loan) {
-        loan.setFirstMonthPayment(loan.getFirstMonthPayment().plus(loan.getApplicationFee()));
-        return loan;
+    public T1 apply(T1 financialInstrument) {
+        financialInstrument.setFirstMonthPayment(financialInstrument.getFirstMonthPayment().plus(financialInstrument.getApplicationFee()));
+        return financialInstrument;
     }
 }
