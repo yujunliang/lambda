@@ -1,6 +1,8 @@
 package loan.domain;
 
-public class Lease extends FinancialInstrument{
+import loan.primitives.Amount;
+
+public class Lease extends FinancialInstrument {
 
     private Amount residualValue;
 

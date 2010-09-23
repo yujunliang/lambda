@@ -1,9 +1,9 @@
 package jbehave;
 
+import loan.primitives.Amount;
+import loan.primitives.Rate;
 import loan.composite.LoanCalculation;
-import loan.domain.Amount;
 import loan.domain.Loan;
-import loan.domain.Rate;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;

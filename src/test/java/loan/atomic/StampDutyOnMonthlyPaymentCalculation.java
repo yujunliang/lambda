@@ -2,7 +2,7 @@ package loan.atomic;
 
 import com.google.common.base.Function;
 import loan.domain.FinancialInstrument;
-import loan.domain.Rate;
+import loan.primitives.Rate;
 
 public class StampDutyOnMonthlyPaymentCalculation<T extends FinancialInstrument> implements Function<T, T> {
 

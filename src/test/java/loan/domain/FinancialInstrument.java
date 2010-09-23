@@ -1,6 +1,8 @@
 package loan.domain;
 
-public abstract class FinancialInstrument {
+import loan.primitives.*;
+
+public abstract class FinancialInstrument implements Principal, FirstMonthPayment, FirstMonthPaymentWithStampDuty {
     private Amount principal;
     private int term;
     private Rate rate;

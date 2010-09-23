@@ -1,4 +1,4 @@
 package loan.domain;
 
-public class Loan extends FinancialInstrument{
+public class Loan extends FinancialInstrument {
 }

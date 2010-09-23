@@ -1,8 +1,6 @@
-package loan.domain;
+package loan.primitives;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 
 /**

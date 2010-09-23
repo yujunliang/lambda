@@ -1,11 +1,10 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.Amount;
 import loan.domain.Lease;
+import loan.primitives.Amount;
 
-import static loan.domain.FinancialCalculator.monthlyLeasePayment;
-import static loan.domain.FinancialCalculator.monthlyLoanPayment;
+import static loan.atomic.FinancialCalculator.monthlyLeasePayment;
 
 public enum MonthlyLeasePaymentCalculation implements Function<Lease, Lease>{
     INSTANCE;

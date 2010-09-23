@@ -1,4 +1,4 @@
-package loan.domain;
+package loan.atomic;
 
 public class FinancialCalculator {
 

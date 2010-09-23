@@ -1,11 +1,11 @@
 package loan.traditional;
 
-import loan.domain.Amount;
+import loan.primitives.Amount;
+import loan.primitives.Rate;
 import loan.domain.Country;
 import loan.domain.FinancialInstrument;
-import loan.domain.Rate;
 
-import static loan.domain.FinancialCalculator.monthlyLoanPayment;
+import static loan.atomic.FinancialCalculator.monthlyLoanPayment;
 
 public class TranditionalLoanCalculation {
     public static void calculate(FinancialInstrument financialInstrument) {

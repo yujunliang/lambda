@@ -7,7 +7,7 @@ import loan.domain.Loan;
 
 import static algocraft.function.Functions.conditional;
 import static com.google.common.base.Predicates.not;
-import static loan.domain.Rate.valueOf;
+import static loan.primitives.Rate.valueOf;
 
 public final class NarniaLoanCalculation extends CompositeFunction<Loan, Loan> {
 

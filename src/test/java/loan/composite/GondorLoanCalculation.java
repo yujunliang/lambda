@@ -7,7 +7,7 @@ import loan.atomic.MonthlyLoanPaymentCalculation;
 import loan.atomic.StampDutyOnMonthlyPaymentCalculation;
 import loan.domain.Loan;
 
-import static loan.domain.Rate.valueOf;
+import static loan.primitives.Rate.valueOf;
 
 public final class GondorLoanCalculation extends CompositeFunction<Loan, Loan> {
 

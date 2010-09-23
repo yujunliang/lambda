@@ -2,7 +2,7 @@
  * Copyright 2005 ThoughtWorks, Inc. All rights reserved.
  * Use is subject to license terms.
  */
-package loan.domain;
+package loan.primitives;
 
 import java.math.BigDecimal;
 

@@ -7,7 +7,7 @@ import loan.atomic.MonthlyLoanPaymentCalculation;
 import loan.atomic.StampDutyOnPrincipalCalculation;
 import loan.domain.Loan;
 
-import static loan.domain.Rate.valueOf;
+import static loan.primitives.Rate.valueOf;
 
 public final class WonderlandLoanCalculation extends CompositeFunction<Loan, Loan> {
 
