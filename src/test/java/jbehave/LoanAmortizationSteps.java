@@ -2,7 +2,6 @@ package jbehave;
 
 import loan.composite.LoanCalculation;
 import loan.domain.Amount;
-import loan.domain.FinancialInstrument;
 import loan.domain.Loan;
 import loan.domain.Rate;
 import org.jbehave.core.annotations.Given;
@@ -15,32 +14,32 @@ import static org.junit.Assert.assertEquals;
 
 public class LoanAmortizationSteps {
 
-    private Loan financialInstrument;
+    private Loan loan;
 
-    @Given("<term> year financialInstrument of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
+    @Given("<term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
     public void given(int term,  double amount, double rate, String country, String  buyer, String borrowed, double fee) {
-        financialInstrument = new Loan();
-        financialInstrument.setRate(Rate.valueOf(rate));
-        financialInstrument.setPrincipal(Amount.valueOf(amount));
-        financialInstrument.setTerm(term);
-        financialInstrument.setCountryCode(country);
-        financialInstrument.setFirstTimeBuyer(buyer.equals(""));
-        financialInstrument.setBorrowLoanApplicationFee(borrowed.equals(""));
-        financialInstrument.setApplicationFee(Amount.valueOf(fee));
+        loan = new Loan();
+        loan.setRate(Rate.valueOf(rate));
+        loan.setPrincipal(Amount.valueOf(amount));
+        loan.setTerm(term);
+        loan.setCountryCode(country);
+        loan.setFirstTimeBuyer(buyer.equals(""));
+        loan.setBorrowLoanApplicationFee(borrowed.equals(""));
+        loan.setApplicationFee(Amount.valueOf(fee));
 
     }
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-        new LoanCalculation().apply(financialInstrument);
-        //TranditionalLoanCalculation.calculate(financialInstrument);
+        new LoanCalculation().apply(loan);
+        //TranditionalLoanCalculation.calculate(loan);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
     public void then(BigDecimal payment, BigDecimal stampduty, BigDecimal first) {
-        assertEquals(payment,  financialInstrument.getMonthPayment().value());
-        assertEquals(first, financialInstrument.getFirstMonthPayment().value());
-        assertEquals(stampduty, financialInstrument.getStampDuty().value());
+        assertEquals(payment,  loan.getMonthPayment().value());
+        assertEquals(first, loan.getFirstMonthPayment().value());
+        assertEquals(stampduty, loan.getStampDuty().value());
     }
 
 }
