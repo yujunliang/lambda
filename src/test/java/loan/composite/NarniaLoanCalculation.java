@@ -13,11 +13,11 @@ public final class NarniaLoanCalculation extends CompositeFunction<Loan, Loan> {
 
 	public NarniaLoanCalculation() {
         super(
-              conditional(BorrowLoanApplicationFeePredicate.INSTANCE, new AddApplicationFeeToPrincipalCalculation()),
+              conditional(BorrowLoanApplicationFeePredicate.INSTANCE, new SetPrincipal()),
               MonthlyLoanPaymentCalculation.INSTANCE,
               conditional(not(new FirstTimeBuyerPredicate()), new StampDutyOnMonthlyPaymentCalculation(valueOf(0.03))),
               new FirstMonthPaymentCalculation(),
-              conditional(not(BorrowLoanApplicationFeePredicate.INSTANCE), new AddApplicationFeeToFirstMonthPaymentCalculation())
+              conditional(not(BorrowLoanApplicationFeePredicate.INSTANCE), new SetFirstMonthPayment())
         );
 	}
 }
