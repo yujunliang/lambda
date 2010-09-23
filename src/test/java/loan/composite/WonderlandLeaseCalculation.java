@@ -4,10 +4,8 @@ package loan.composite;
 import algocraft.function.CompositeFunction;
 import loan.atomic.FirstMonthPaymentCalculation;
 import loan.atomic.MonthlyLeasePaymentCalculation;
-import loan.atomic.MonthlyLoanPaymentCalculation;
 import loan.atomic.StampDutyOnPrincipalCalculation;
 import loan.domain.Lease;
-import loan.domain.Loan;
 
 import static loan.domain.Rate.valueOf;
 

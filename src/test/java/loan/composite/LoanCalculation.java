@@ -11,8 +11,8 @@ public class LoanCalculation extends CaseFunction<Loan, Loan, Country> {
 
     public LoanCalculation() {
         super(new GetCountry(),
-                GD, new GondorCalculation(),
-                NR, new NarniaCalculation(),
-                WL, new WonderlandCalculation());
+                GD, new GondorLoanCalculation(),
+                NR, new NarniaLoanCalculation(),
+                WL, new WonderlandLoanCalculation());
     }
 }

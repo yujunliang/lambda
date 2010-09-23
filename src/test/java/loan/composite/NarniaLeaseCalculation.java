@@ -4,7 +4,6 @@ package loan.composite;
 import algocraft.function.CompositeFunction;
 import loan.atomic.*;
 import loan.domain.Lease;
-import loan.domain.Loan;
 
 import static algocraft.function.Functions.conditional;
 import static com.google.common.base.Predicates.not;
