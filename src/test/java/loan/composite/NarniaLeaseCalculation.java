@@ -14,7 +14,7 @@ public final class NarniaLeaseCalculation extends CompositeFunction<Lease, Lease
 	public NarniaLeaseCalculation() {
         super(
               conditional(BorrowLoanApplicationFeePredicate.INSTANCE, new SetPrincipal()),
-              MonthlyLeasePaymentCalculation.INSTANCE,
+              new SetMonthlyPayment(new MonthlyLeasePayment()),
               conditional(not(new FirstTimeBuyerPredicate()), new SetStampDuty(new StampDutyOnMonthlyPayment(valueOf(0.03)))),
               new FirstMonthPaymentCalculation(),
               conditional(not(BorrowLoanApplicationFeePredicate.INSTANCE), new SetFirstMonthPayment())

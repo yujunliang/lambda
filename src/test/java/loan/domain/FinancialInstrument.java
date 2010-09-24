@@ -2,7 +2,7 @@ package loan.domain;
 
 import loan.primitives.*;
 
-public abstract class FinancialInstrument implements Principal, FirstMonthPayment, FirstMonthPaymentWithStampDuty {
+public abstract class FinancialInstrument implements Principal, FirstMonthPayment, FirstMonthPaymentWithStampDuty, MonthlyPaymentCaculatable, WithCountry {
     private Amount principal;
     private int term;
     private Rate rate;
@@ -70,7 +70,7 @@ public abstract class FinancialInstrument implements Principal, FirstMonthPaymen
         return country;
     }
 
-    public boolean isBorrowLoanApplicationFee() {
+    public boolean isFinanceApplicationFee() {
         return borrowLoanApplicationFee;
     }
 

@@ -28,7 +28,7 @@ public class TranditionalLoanCalculation {
 
         );
        } else if (financialInstrument.getCountry() == Country.NR) {
-           if (financialInstrument.isBorrowLoanApplicationFee()) {
+           if (financialInstrument.isFinanceApplicationFee()) {
                financialInstrument.setPrincipal(financialInstrument.getPrincipal().plus(financialInstrument.getApplicationFee()));
            }
            financialInstrument.setMonthPayment(
@@ -48,7 +48,7 @@ public class TranditionalLoanCalculation {
                     financialInstrument.getStampDuty()
                  )
            );
-           if (!financialInstrument.isBorrowLoanApplicationFee()) {
+           if (!financialInstrument.isFinanceApplicationFee()) {
                financialInstrument.setFirstMonthPayment(financialInstrument.getFirstMonthPayment().plus(financialInstrument.getApplicationFee()));
            }
 

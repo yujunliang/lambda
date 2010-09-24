@@ -7,6 +7,6 @@ public enum BorrowLoanApplicationFeePredicate implements Predicate<FinancialInst
     INSTANCE;
 	@Override
 	public boolean apply(final FinancialInstrument financialInstrument) {
-		return financialInstrument.isBorrowLoanApplicationFee();
+		return financialInstrument.isFinanceApplicationFee();
 	}
 }
