@@ -23,3 +23,8 @@ Note,
     complex function than how individual functions work. The example of wiring can be found in GondorCalculation,
     NarniaCalculation and WonderlandCalculation.
 
+
+Exercise,
+
+    Now we need add functionality to support lease business, assume everything remaining same but there is no first time buyer
+    rule for lease business and application fee need to be paid on first month payment. How to add the new function?

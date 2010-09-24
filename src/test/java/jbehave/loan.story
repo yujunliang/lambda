@@ -1,4 +1,4 @@
-Given <term> year financialInstrument of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>
+Given <term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>
 When we calculate periodic payment
 Then monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>
 
