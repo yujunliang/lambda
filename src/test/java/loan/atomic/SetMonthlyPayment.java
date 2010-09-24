@@ -13,8 +13,8 @@ public class SetMonthlyPayment<T extends MonthlyPaymentCaculatable> implements F
     }
 
     @Override
-    public T apply(T loan) {
-        loan.setMonthPayment(   calc.apply(loan) );
-        return loan;
+    public T apply(T t) {
+        t.setMonthPayment(calc.apply(t));
+        return t;
     }    
 }

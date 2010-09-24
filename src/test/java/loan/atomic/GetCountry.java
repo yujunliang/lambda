@@ -8,7 +8,7 @@ import loan.primitives.WithCountry;
 public class GetCountry<T extends WithCountry> implements Function<T, Country> {
 
     @Override
-    public Country apply(T financialInstrument) {
-        return financialInstrument.getCountry();
+    public Country apply(T t) {
+        return t.getCountry();
     }
 }

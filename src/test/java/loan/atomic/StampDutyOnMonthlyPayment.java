@@ -1,12 +1,11 @@
 package loan.atomic;
 
 import com.google.common.base.Function;
-import loan.domain.FinancialInstrument;
 import loan.primitives.Amount;
 import loan.primitives.FirstMonthPaymentWithStampDuty;
 import loan.primitives.Rate;
 
-public class StampDutyOnMonthlyPayment<T extends FinancialInstrument> implements Function<T, Amount> {
+public class StampDutyOnMonthlyPayment<T extends FirstMonthPaymentWithStampDuty> implements Function<T, Amount> {
 
     private final Rate rate;
 
@@ -15,7 +14,7 @@ public class StampDutyOnMonthlyPayment<T extends FinancialInstrument> implements
     }
 
     @Override
-    public Amount apply(T financialInstrument) {
-        return financialInstrument.getMonthPayment().multiply(rate);
+    public Amount apply(T t) {
+        return t.getMonthPayment().multiply(rate);
     }
 }

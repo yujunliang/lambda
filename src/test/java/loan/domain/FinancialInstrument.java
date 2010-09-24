@@ -2,7 +2,9 @@ package loan.domain;
 
 import loan.primitives.*;
 
-public abstract class FinancialInstrument implements Principal, FirstMonthPayment, FirstMonthPaymentWithStampDuty, MonthlyPaymentCaculatable, WithCountry {
+public abstract class FinancialInstrument implements Principal, FirstMonthPayment,
+        FirstMonthPaymentWithStampDuty, MonthlyPaymentCaculatable, WithCountry, FinanceApplicationFee,
+FirstTimeBuyer, StampDuty{
     private Amount principal;
     private int term;
     private Rate rate;

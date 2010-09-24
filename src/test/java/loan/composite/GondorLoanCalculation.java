@@ -13,7 +13,7 @@ public final class GondorLoanCalculation extends CompositeFunction<Loan, Loan> {
         super(
               new SetMonthlyPayment(new MonthlyLoanPayment()),
               new SetStampDuty(new StampDutyOnMonthlyPayment(valueOf(0.02))),
-              new FirstMonthPaymentCalculation()
+              new SetFirstMonthPayment(new SumMonthlyPaymentAndStampDuty())
         );
     }
 }

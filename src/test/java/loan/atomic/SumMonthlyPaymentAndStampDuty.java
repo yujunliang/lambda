@@ -6,7 +6,7 @@ import loan.primitives.FirstMonthPaymentWithStampDuty;
 
 public class SumMonthlyPaymentAndStampDuty<T extends FirstMonthPaymentWithStampDuty> implements Function<T, Amount> {
     @Override
-    public Amount apply( T financialInstrument) {
-        return financialInstrument.getMonthPayment().plus(financialInstrument.getStampDuty());
+    public Amount apply(T t) {
+        return t.getMonthPayment().plus(t.getStampDuty());
     }
 }

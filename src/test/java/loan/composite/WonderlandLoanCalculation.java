@@ -13,7 +13,7 @@ public final class WonderlandLoanCalculation extends CompositeFunction<Loan, Loa
         super(
               new SetMonthlyPayment(new MonthlyLoanPayment()),
               new SetStampDuty(new StampDutyOnPrincipal(valueOf(0.03))),
-              new FirstMonthPaymentCalculation()
+              new SetFirstMonthPayment(new SumMonthlyPaymentAndStampDuty())
         );
     }
 }

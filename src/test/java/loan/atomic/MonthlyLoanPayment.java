@@ -7,11 +7,11 @@ import loan.primitives.MonthlyPaymentCaculatable;
 import static loan.atomic.FinancialCalculator.monthlyLoanPayment;
 import static loan.primitives.Amount.valueOf;
 
-public class MonthlyLoanPayment implements Function<MonthlyPaymentCaculatable, Amount> {
+public class MonthlyLoanPayment<T extends MonthlyPaymentCaculatable> implements Function<T, Amount> {
     @Override
-    public Amount apply(MonthlyPaymentCaculatable loan) {
-        return valueOf(monthlyLoanPayment(loan.getRate().doubleValue(),
-                loan.getTerm() * 12,
-                loan.getPrincipal().doubleValue()));
+    public Amount apply(T t) {
+        return valueOf(monthlyLoanPayment(t.getRate().doubleValue(),
+                t.getTerm() * 12,
+                t.getPrincipal().doubleValue()));
     }
 }

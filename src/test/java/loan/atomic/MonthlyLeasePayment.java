@@ -7,13 +7,13 @@ import loan.primitives.Leasable;
 import static loan.atomic.FinancialCalculator.monthlyLeasePayment;
 import static loan.primitives.Amount.valueOf;
 
-public class MonthlyLeasePayment implements Function<Leasable, Amount>{
+public class MonthlyLeasePayment<T extends Leasable> implements Function<T, Amount>{
 
     @Override
-    public Amount apply(Leasable lease) {
+    public Amount apply(T t) {
         return valueOf(
-           monthlyLeasePayment(lease.getRate().doubleValue(),
-                               lease.getTerm()*12,
-                               lease.getPrincipal().doubleValue(),lease.getResidualValue().doubleValue()));
+           monthlyLeasePayment(t.getRate().doubleValue(),
+                               t.getTerm()*12,
+                               t.getPrincipal().doubleValue(),t.getResidualValue().doubleValue()));
     }    
 }

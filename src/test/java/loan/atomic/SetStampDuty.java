@@ -3,18 +3,19 @@ package loan.atomic;
 import com.google.common.base.Function;
 import loan.domain.FinancialInstrument;
 import loan.primitives.Amount;
+import loan.primitives.StampDuty;
 
-public class SetStampDuty<T extends FinancialInstrument> implements Function<T, T> {
+public class SetStampDuty<T extends StampDuty> implements Function<T, T> {
 
-    private final Function<FinancialInstrument, Amount> function;
+    private final Function<StampDuty, Amount> function;
 
-    public SetStampDuty(Function<FinancialInstrument, Amount> function) {
+    public SetStampDuty(Function<StampDuty, Amount> function) {
         this.function = function;
     }
 
     @Override
-    public T apply(T financialInstrument) {
-        financialInstrument.setStampDuty(function.apply(financialInstrument));
-        return financialInstrument;
+    public T apply(T t) {
+        t.setStampDuty(function.apply(t));
+        return t;
     }
 }

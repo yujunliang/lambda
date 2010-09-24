@@ -4,9 +4,9 @@ import com.google.common.base.Function;
 import loan.primitives.Amount;
 import loan.primitives.FirstMonthPayment;
 
-public class AddApplicationFeeToFirstMonthPayment<T1 extends FirstMonthPayment> implements Function<T1, Amount> {
+public class AddApplicationFeeToFirstMonthPayment<T extends FirstMonthPayment> implements Function<T, Amount> {
     @Override
-    public Amount apply( T1 from) {
-        return from.getFirstMonthPayment().plus(from.getApplicationFee());
+    public Amount apply(T t) {
+        return t.getFirstMonthPayment().plus(t.getApplicationFee());
     }
 }

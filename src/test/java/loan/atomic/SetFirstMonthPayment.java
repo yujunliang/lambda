@@ -2,15 +2,19 @@ package loan.atomic;
 
 import com.google.common.base.Function;
 import loan.primitives.Amount;
-import loan.primitives.FirstMonthPayment;
+import loan.primitives.FirstMonthPaymentWithStampDuty;
 
-public class SetFirstMonthPayment<T1 extends FirstMonthPayment> implements Function<T1, T1> {
+public class SetFirstMonthPayment<T extends FirstMonthPaymentWithStampDuty> implements Function<T, T> {
 
-    Function<T1, Amount> add = new AddApplicationFeeToFirstMonthPayment();
-    
+    private final Function<FirstMonthPaymentWithStampDuty, Amount> add;
+
+    public SetFirstMonthPayment(Function<FirstMonthPaymentWithStampDuty, Amount> add) {
+        this.add = add;
+    }
+
     @Override
-    public T1 apply(T1 financialInstrument) {
-        financialInstrument.setFirstMonthPayment(add.apply(financialInstrument));
-        return financialInstrument;
+    public T apply(T t) {
+        t.setFirstMonthPayment(add.apply(t));
+        return t;
     }
 }

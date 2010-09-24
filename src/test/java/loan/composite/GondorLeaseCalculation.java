@@ -13,7 +13,7 @@ public final class GondorLeaseCalculation extends CompositeFunction<Lease, Lease
         super(
               new SetMonthlyPayment(new MonthlyLeasePayment()),
               new SetStampDuty(new StampDutyOnMonthlyPayment(valueOf(0.02))),
-              new FirstMonthPaymentCalculation()
+              new SetFirstMonthPayment(new SumMonthlyPaymentAndStampDuty())
         );
     }
 }
