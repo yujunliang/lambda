@@ -1,4 +1,4 @@
-package jbehave;
+package jbehave.lease;
 
 import composite.lease.Lease;
 import composite.lease.LeaseCalculation;

@@ -1,4 +1,4 @@
-package jbehave;
+package jbehave.loan;
 
 import composite.loan.LoanCalculation;
 import functions.primitives.Amount;
