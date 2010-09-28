@@ -1,10 +1,9 @@
 package jbehave.lease;
 
-import jbehave.BaseAmortizationStory;
-import jbehave.lease.LeaseAmortizationSteps;
+import jbehave.BaseDefinition;
 
-public class LeaseStory extends BaseAmortizationStory {
+public class LeaseStory extends BaseDefinition {
     public LeaseStory() {
-        super(new LeaseAmortizationSteps());
+        super(new LeaseBehaveDefinition());
     }
 }

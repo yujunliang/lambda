@@ -1,10 +1,9 @@
 package jbehave.loan;
 
-import jbehave.BaseAmortizationStory;
-import jbehave.loan.LoanAmortizationSteps;
+import jbehave.BaseDefinition;
 
-public class LoanStory extends BaseAmortizationStory {
+public class LoanStory extends BaseDefinition {
     public LoanStory() {
-        super(new LoanAmortizationSteps());
+        super(new LoanBehaveDefinition());
     }
 }

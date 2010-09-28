@@ -17,6 +17,16 @@ public class FinancialCalculator {
         return principal * v / (v - 1) * b;
     }
 
+    /**
+     * This formula is from
+     * http://www.leaseguide.com/lease08.htm
+     *
+     * @param rate
+     * @param term
+     * @param principal
+     * @param residual
+     * @return
+     */
     public static double monthlyLeasePayment(double rate, int term, double principal, double residual) {
         double depreciationFee = (principal - residual) / term;
         double financeFee = (principal + residual) * rate/100;
