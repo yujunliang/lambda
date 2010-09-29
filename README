@@ -2,8 +2,8 @@ Compalgo is a lightweight framework helping you to split complex business logic 
 functions and assemble them together to any complexity level. It has been refactored to utilize the Function
 and Predicate from Google collections. They used to be called Solution and Applicability.
 
-Please run LoanStory.java to test.  The implementation is LoanCalculation.java for example and compare
-TraditionalLoanCalculation.java for alternative solution without using the framework.
+Please run LoanStory.java to test.  The implementation is LoanCalculation.java. TraditionalLoanCalculation.java is
+an alternative solution without using the framework.
 
 The LoanStory.java demonstrates how to use Compalgo to solve the following complex business problems.
 
@@ -32,3 +32,7 @@ Exercise,
     time buyer rule for lease business and application fee need to be paid on first month payment. How to add the
     new function?
     The formula to calculate lease payment can be found here http://www.leaseguide.com/lease08.htm
+
+Answer,
+
+    The implementation is LeaseCalculation.java and please run LeaseStory.java to test.
