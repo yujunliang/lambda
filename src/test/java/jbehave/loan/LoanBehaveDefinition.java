@@ -17,14 +17,14 @@ public class LoanBehaveDefinition {
 
     private Loan loan;
 
-    @Given("<term> year loan of <amount> at <rate> in <country> for <buyer> first time buyer with <borrowed> borrowed application fee <fee>")
-    public void given(int term,  double amount, double rate, String country, String  buyer, String borrowed, double fee) {
+    @Given("<term> year loan of <amount> at <rate> in <country> for <first_time> first time buyer with <borrowed> borrowed application fee <fee>")
+    public void given(int term,  double amount, double rate, String country, String  first_time, String borrowed, double fee) {
         loan = new Loan();
         loan.setRate(Rate.valueOf(rate));
         loan.setPrincipal(Amount.valueOf(amount));
         loan.setTerm(term);
         loan.setCountryCode(country);
-        loan.setFirstTimeBuyer(buyer.equals(""));
+        loan.setFirstTimeBuyer(first_time.equals(""));
         loan.setBorrowLoanApplicationFee(borrowed.equals(""));
         loan.setApplicationFee(Amount.valueOf(fee));
 
