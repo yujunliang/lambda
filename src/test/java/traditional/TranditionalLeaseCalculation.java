@@ -16,7 +16,7 @@ public class TranditionalLeaseCalculation {
 
             lease.setMonthPayment(Amount.valueOf(depreciationFee + financeFee));
             lease.setStampDuty(
-                    lease.getMonthPayment().multiply(Rate.valueOf(0.02))
+                    lease.getMonthPayment().times(Rate.valueOf(0.02))
             );
             lease.setFirstMonthPayment(
                     lease.getMonthPayment().plus(
@@ -32,7 +32,7 @@ public class TranditionalLeaseCalculation {
             lease.setMonthPayment(Amount.valueOf(depreciationFee + financeFee));
 
             lease.setStampDuty(
-                    lease.getMonthPayment().multiply(Rate.valueOf(0.03))
+                    lease.getMonthPayment().times(Rate.valueOf(0.03))
             );
 
             lease.setFirstMonthPayment(
@@ -52,7 +52,7 @@ public class TranditionalLeaseCalculation {
             lease.setMonthPayment(Amount.valueOf(depreciationFee + financeFee));
 
             lease.setStampDuty(
-                    lease.getPrincipal().multiply(Rate.valueOf(0.03))
+                    lease.getPrincipal().times(Rate.valueOf(0.03))
             );
             lease.setFirstMonthPayment(
                     lease.getMonthPayment().plus(

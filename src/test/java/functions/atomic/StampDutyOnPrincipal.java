@@ -14,6 +14,6 @@ public class StampDutyOnPrincipal<T extends PrincipalAndApplicationFee> implemen
 
     @Override
     public Amount apply(T t) {
-        return t.getPrincipal().multiply(rate);
+        return t.getPrincipal().times(rate);
     }
 }

@@ -15,7 +15,7 @@ public class TranditionalLoanCalculation {
 
             loan.setMonthPayment(Amount.valueOf(monthly));
             loan.setStampDuty(
-                    loan.getMonthPayment().multiply(Rate.valueOf(0.02))
+                    loan.getMonthPayment().times(Rate.valueOf(0.02))
             );
             loan.setFirstMonthPayment(
                     loan.getMonthPayment().plus(
@@ -35,7 +35,7 @@ public class TranditionalLoanCalculation {
 
             if (!loan.isFirstTimeBuyer()) {
                 loan.setStampDuty(
-                        loan.getMonthPayment().multiply(Rate.valueOf(0.03))
+                        loan.getMonthPayment().times(Rate.valueOf(0.03))
                 );
             }
             loan.setFirstMonthPayment(
@@ -55,7 +55,7 @@ public class TranditionalLoanCalculation {
             loan.setMonthPayment(Amount.valueOf(monthly));
 
             loan.setStampDuty(
-                    loan.getPrincipal().multiply(Rate.valueOf(0.03))
+                    loan.getPrincipal().times(Rate.valueOf(0.03))
             );
             loan.setFirstMonthPayment(
                     loan.getMonthPayment().plus(

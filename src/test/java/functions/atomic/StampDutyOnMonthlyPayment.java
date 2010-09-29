@@ -15,6 +15,6 @@ public class StampDutyOnMonthlyPayment<T extends FirstMonthPaymentWithStampDuty>
 
     @Override
     public Amount apply(T t) {
-        return t.getMonthPayment().multiply(rate);
+        return t.getMonthPayment().times(rate);
     }
 }
