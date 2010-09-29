@@ -1,6 +1,6 @@
 package functions.primitives;
 
-public interface Principal {
+public interface PrincipalAndApplicationFee {
     Amount getPrincipal();
 
     Amount getApplicationFee();

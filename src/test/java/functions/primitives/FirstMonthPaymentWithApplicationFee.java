@@ -1,6 +1,6 @@
 package functions.primitives;
 
-public interface FirstMonthPayment {
+public interface FirstMonthPaymentWithApplicationFee {
     Amount getFirstMonthPayment();
 
     Amount getApplicationFee();

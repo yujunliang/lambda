@@ -1,9 +1,8 @@
 package composite;
 
-import composite.Country;
 import functions.primitives.*;
 
-public abstract class FinancialInstrument implements Principal, FirstMonthPayment,
+public abstract class FinancialInstrument implements PrincipalAndApplicationFee, FirstMonthPaymentWithApplicationFee,
         FirstMonthPaymentWithStampDuty, MonthlyPaymentCaculatable, WithCountry, FinanceApplicationFee,
         StampDuty{
     private Amount principal;

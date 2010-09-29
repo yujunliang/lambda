@@ -2,13 +2,13 @@ package functions.atomic;
 
 import com.google.common.base.Function;
 import functions.primitives.Amount;
-import functions.primitives.Principal;
+import functions.primitives.PrincipalAndApplicationFee;
 
-public class SetPrincipal<T extends Principal> implements Function<T, T> {
+public class SetPrincipal<T extends PrincipalAndApplicationFee> implements Function<T, T> {
 
-    private final Function<Principal, Amount> add;
+    private final Function<PrincipalAndApplicationFee, Amount> add;
 
-    public SetPrincipal(Function<Principal, Amount> add) {
+    public SetPrincipal(Function<PrincipalAndApplicationFee, Amount> add) {
         this.add = add;
     }
 

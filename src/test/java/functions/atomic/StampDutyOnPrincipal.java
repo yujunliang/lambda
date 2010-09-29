@@ -2,10 +2,10 @@ package functions.atomic;
 
 import com.google.common.base.Function;
 import functions.primitives.Amount;
-import functions.primitives.Principal;
+import functions.primitives.PrincipalAndApplicationFee;
 import functions.primitives.Rate;
 
-public class StampDutyOnPrincipal<T extends Principal> implements Function<T, Amount>{
+public class StampDutyOnPrincipal<T extends PrincipalAndApplicationFee> implements Function<T, Amount>{
     private final Rate rate;
 
     public StampDutyOnPrincipal(Rate rate) {
