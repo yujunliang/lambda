@@ -31,8 +31,8 @@ public class LeaseBehaveDefinition {
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-        new LeaseCalculation().apply(lease);
-        //TranditionalLeaseCalculation.calculate(lease);
+        //new LeaseCalculation().apply(lease);
+        TranditionalLeaseCalculation.calculate(lease);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
