@@ -6,9 +6,9 @@ import functions.primitives.StampDuty;
 
 public class SetStampDuty<T extends StampDuty> implements Function<T, T> {
 
-    private final Function<StampDuty, Amount> function;
+    private final Function<T, Amount> function;
 
-    public SetStampDuty(Function<StampDuty, Amount> function) {
+    public SetStampDuty(Function<T, Amount> function) {
         this.function = function;
     }
 

@@ -6,9 +6,9 @@ import functions.primitives.FirstMonthPaymentWithStampDuty;
 
 public class SetFirstMonthPayment<T extends FirstMonthPaymentWithStampDuty> implements Function<T, T> {
 
-    private final Function<FirstMonthPaymentWithStampDuty, Amount> add;
+    private final Function<T, Amount> add;
 
-    public SetFirstMonthPayment(Function<FirstMonthPaymentWithStampDuty, Amount> add) {
+    public SetFirstMonthPayment(Function<T, Amount> add) {
         this.add = add;
     }
 

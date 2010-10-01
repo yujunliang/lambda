@@ -32,8 +32,8 @@ public class LoanBehaveDefinition {
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-      //  new LoanCalculation().apply(loan);
-        TranditionalLoanCalculation.calculate(loan);
+        new LoanCalculation().apply(loan);
+        //TranditionalLoanCalculation.calculate(loan);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")

@@ -6,9 +6,9 @@ import functions.primitives.PrincipalAndApplicationFee;
 
 public class SetPrincipal<T extends PrincipalAndApplicationFee> implements Function<T, T> {
 
-    private final Function<PrincipalAndApplicationFee, Amount> add;
+    private final Function<T, Amount> add;
 
-    public SetPrincipal(Function<PrincipalAndApplicationFee, Amount> add) {
+    public SetPrincipal(Function<T, Amount> add) {
         this.add = add;
     }
 
