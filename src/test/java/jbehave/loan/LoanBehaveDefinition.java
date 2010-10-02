@@ -7,7 +7,6 @@ import composite.loan.Loan;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import traditional.TranditionalLoanCalculation;
 
 import java.math.BigDecimal;
 
@@ -33,7 +32,7 @@ public class LoanBehaveDefinition {
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
         new LoanCalculation().apply(loan);
-        //TranditionalLoanCalculation.calculate(loan);
+        //LegacyLoanCalculation.calculate(loan);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")

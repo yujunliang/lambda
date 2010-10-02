@@ -1,13 +1,12 @@
 package jbehave.lease;
 
 import composite.lease.Lease;
-import composite.lease.LeaseCalculation;
 import functions.primitives.Amount;
 import functions.primitives.Rate;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import traditional.TranditionalLeaseCalculation;
+import legacy.LegacyLeaseCalculation;
 
 import java.math.BigDecimal;
 
@@ -32,7 +31,7 @@ public class LeaseBehaveDefinition {
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
         //new LeaseCalculation().apply(lease);
-        TranditionalLeaseCalculation.calculate(lease);
+        LegacyLeaseCalculation.calculate(lease);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")

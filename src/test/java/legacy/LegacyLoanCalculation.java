@@ -1,11 +1,11 @@
-package traditional;
+package legacy;
 
 import composite.Country;
 import composite.loan.Loan;
 import functions.primitives.Amount;
 import functions.primitives.Rate;
 
-public class TranditionalLoanCalculation {
+public class LegacyLoanCalculation {
     public static void calculate(Loan loan) {
 
         if (loan.getCountry() == Country.GD) {

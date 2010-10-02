@@ -1,11 +1,11 @@
-package traditional;
+package legacy;
 
 import composite.Country;
 import composite.lease.Lease;
 import functions.primitives.Amount;
 import functions.primitives.Rate;
 
-public class TranditionalLeaseCalculation {
+public class LegacyLeaseCalculation {
     public static void calculate(Lease lease) {
 
         if (lease.getCountry() == Country.GD) {
