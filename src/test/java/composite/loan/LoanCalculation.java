@@ -1,8 +1,8 @@
 package composite.loan;
 
 import algocraft.function.CaseFunction;
-import functions.atomic.GetCountry;
 import composite.Country;
+import functions.atomic.GetCountry;
 
 import static composite.Country.*;
 

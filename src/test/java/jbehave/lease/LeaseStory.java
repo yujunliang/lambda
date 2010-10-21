@@ -4,6 +4,7 @@ import jbehave.BaseDefinition;
 
 public class LeaseStory extends BaseDefinition {
     public LeaseStory() {
-        super(new LeaseBehaveDefinition());
+        //super(new LeaseBehaveDefinition());
+        super(new LegacyLeaseBehaveDefinition());
     }
 }

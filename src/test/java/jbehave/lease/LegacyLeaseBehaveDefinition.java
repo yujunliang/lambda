@@ -1,45 +1,43 @@
 package jbehave.lease;
 
-import composite.lease.Lease;
-import composite.lease.LeaseCalculation;
 import functions.primitives.Amount;
 import functions.primitives.Rate;
+import legacy.Lease;
+import legacy.LegacyLeaseCalculation;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import legacy.LegacyLeaseCalculation;
 
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-public class LeaseBehaveDefinition {
+public class LegacyLeaseBehaveDefinition {
 
     private Lease lease;
 
     @Given("<term> year lease of <amount> with <residual_value> at <rate> in <country> with application fee <fee>")
-    public void given(int term,  double amount, double residual_value, double rate, String country, double fee) {
+    public void given(int term,  BigDecimal amount, BigDecimal residual_value, BigDecimal rate, String country, BigDecimal fee) {
         lease = new Lease();
-        lease.setRate(Rate.valueOf(rate));
-        lease.setPrincipal(Amount.valueOf(amount));
+        lease.setRate(rate);
+        lease.setPrincipal(amount);
         lease.setTerm(term);
         lease.setCountryCode(country);
-        lease.setResidualValue(Amount.valueOf(residual_value));
-        lease.setApplicationFee(Amount.valueOf(fee));
+        lease.setResidualValue(residual_value);
+        lease.setApplicationFee(fee);
 
     }
 
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
-        new LeaseCalculation().apply(lease);
-        //LegacyLeaseCalculation.calculate(lease);
+        LegacyLeaseCalculation.calculate(lease);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
     public void then(BigDecimal payment, BigDecimal stampduty, BigDecimal first) {
-        assertEquals(payment,  lease.getMonthPayment().value());
-        assertEquals(first, lease.getFirstMonthPayment().value());
-        assertEquals(stampduty, lease.getStampDuty().value());
+        assertEquals(payment,  lease.getMonthPayment());
+        assertEquals(first, lease.getFirstMonthPayment());
+        assertEquals(stampduty, lease.getStampDuty());
     }
 
 }
