@@ -17,10 +17,10 @@ public class LegacyLeaseBehaveDefinition {
     private Lease lease;
 
     @Given("<term> year lease of <amount> with <residual_value> at <rate> in <country> with application fee <fee>")
-    public void given(int term,  BigDecimal amount, BigDecimal residual_value, BigDecimal rate, String country, BigDecimal fee) {
+    public void given(int term,  double amount, BigDecimal residual_value, BigDecimal rate, String country, BigDecimal fee) {
         lease = new Lease();
         lease.setRate(rate);
-        lease.setPrincipal(amount);
+        lease.setPrincipal(new BigDecimal(amount));
         lease.setTerm(term);
         lease.setCountryCode(country);
         lease.setResidualValue(residual_value);

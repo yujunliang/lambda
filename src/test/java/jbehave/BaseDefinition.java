@@ -28,9 +28,9 @@ import static org.jbehave.core.reporters.StoryReporterBuilder.Format.*;
 public abstract class BaseDefinition extends JUnitStory {
 
     private static Paranamer paranamer = new CachingParanamer(new BytecodeReadingParanamer());
-    private final Object steps;
+    private final Object[] steps;
 
-    public BaseDefinition(Object steps) {
+    public BaseDefinition(Object... steps) {
         this.steps = steps;
         configuredEmbedder().embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(false)
                 .doIgnoreFailureInView(true);

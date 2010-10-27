@@ -15,10 +15,10 @@ public class LegacyLoanBehaveDefinition {
     private Loan loan;
 
     @Given("<term> year loan of <amount> at <rate> in <country> for <first_time> first time buyer with <borrowed> borrowed application fee <fee>")
-    public void given(int term,  BigDecimal amount, BigDecimal rate, String country, String  first_time, String borrowed, BigDecimal fee) {
+    public void given(int term,  double amount, BigDecimal rate, String country, String  first_time, String borrowed, BigDecimal fee) {
         loan = new Loan();
         loan.setRate(rate);
-        loan.setPrincipal(amount);
+        loan.setPrincipal(new BigDecimal(amount));
         loan.setTerm(term);
         loan.setCountryCode(country);
         loan.setFirstTimeBuyer(first_time.equals(""));
@@ -34,9 +34,9 @@ public class LegacyLoanBehaveDefinition {
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
     public void then(BigDecimal payment, BigDecimal stampduty, BigDecimal first) {
-        assertEquals(payment,  loan.getMonthPayment());
-        assertEquals(first, loan.getFirstMonthPayment());
-        assertEquals(stampduty, loan.getStampDuty());
+        assertEquals(payment.setScale(2, BigDecimal.ROUND_HALF_UP),  loan.getMonthPayment());
+        assertEquals(first.setScale(2, BigDecimal.ROUND_HALF_UP), loan.getFirstMonthPayment());
+        assertEquals(stampduty.setScale(2, BigDecimal.ROUND_HALF_UP), loan.getStampDuty());
     }
 
 }

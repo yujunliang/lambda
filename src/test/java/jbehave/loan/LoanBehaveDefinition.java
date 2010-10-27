@@ -9,6 +9,7 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import static org.junit.Assert.assertEquals;
 
@@ -32,7 +33,6 @@ public class LoanBehaveDefinition {
     @When("we calculate periodic payment")
     public void whenPaymentIsCalculated() {
         new LoanCalculation().apply(loan);
-        //LegacyLoanCalculation.calculate(loan);
     }
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")

@@ -20,6 +20,11 @@ public class Amount {
 
     private BigDecimal amount;
 
+    public Amount(String d) {
+        amount = BigDecimal.valueOf(Double.parseDouble(d))
+                .setScale(CENTS, BigDecimal.ROUND_HALF_UP);
+    }
+
     public Amount(double d) {
         amount = BigDecimal.valueOf(d)
                 .setScale(CENTS, BigDecimal.ROUND_HALF_UP);
