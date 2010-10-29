@@ -4,7 +4,7 @@ import jbehave.BaseDefinition;
 
 public class LoanStory extends BaseDefinition {
     public LoanStory() {
-        //super(new LoanBehaveDefinition());
-        super(new LegacyLoanBehaveDefinition());
+      super(new LoanBehaveDefinition(), new LegacyLoanBehaveDefinition());
+      //  super(new LegacyLoanBehaveDefinition());
     }
 }
