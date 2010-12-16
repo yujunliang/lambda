@@ -18,14 +18,17 @@ public class LeaseBehaveDefinition {
     private Lease lease;
 
     @Given("<term> year lease of <amount> with <residual_value> at <rate> in <country> with application fee <fee>")
-    public void given(int term,  double amount, double residual_value, double rate, String country, double fee) {
-        lease = new Lease();
-        lease.setRate(Rate.valueOf(rate));
-        lease.setPrincipal(Amount.valueOf(amount));
-        lease.setTerm(term);
-        lease.setCountryCode(country);
-        lease.setResidualValue(Amount.valueOf(residual_value));
-        lease.setApplicationFee(Amount.valueOf(fee));
+    public void given(final int term, final double amount, final double residual_value, final double rate, final String country, final double fee) {
+        lease = new Lease() {
+            {
+                setRate(Rate.valueOf(rate));
+                setPrincipal(Amount.valueOf(amount));
+                setTerm(term);
+                setCountryCode(country);
+                setResidualValue(Amount.valueOf(residual_value));
+                setApplicationFee(Amount.valueOf(fee));
+            }
+        };
 
     }
 
@@ -37,7 +40,7 @@ public class LeaseBehaveDefinition {
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
     public void then(BigDecimal payment, BigDecimal stampduty, BigDecimal first) {
-        assertEquals(payment,  lease.getMonthPayment().value());
+        assertEquals(payment, lease.getMonthPayment().value());
         assertEquals(first, lease.getFirstMonthPayment().value());
         assertEquals(stampduty, lease.getStampDuty().value());
     }

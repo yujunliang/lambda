@@ -18,15 +18,18 @@ public class LoanBehaveDefinition {
     private Loan loan;
 
     @Given("<term> year loan of <amount> at <rate> in <country> for <first_time> first time buyer with <borrowed> borrowed application fee <fee>")
-    public void given(int term,  double amount, double rate, String country, String  first_time, String borrowed, double fee) {
-        loan = new Loan();
-        loan.setRate(Rate.valueOf(rate));
-        loan.setPrincipal(Amount.valueOf(amount));
-        loan.setTerm(term);
-        loan.setCountryCode(country);
-        loan.setFirstTimeBuyer(first_time.equals(""));
-        loan.setBorrowLoanApplicationFee(borrowed.equals(""));
-        loan.setApplicationFee(Amount.valueOf(fee));
+    public void given(final int term, final double amount, final double rate, final String country, final String first_time, final String borrowed, final double fee) {
+        loan = new Loan() {
+            {
+                setRate(Rate.valueOf(rate));
+                setPrincipal(Amount.valueOf(amount));
+                setTerm(term);
+                setCountryCode(country);
+                setFirstTimeBuyer(first_time.equals(""));
+                setBorrowLoanApplicationFee(borrowed.equals(""));
+                setApplicationFee(Amount.valueOf(fee));
+            }
+        };
 
     }
 
@@ -37,7 +40,7 @@ public class LoanBehaveDefinition {
 
     @Then("monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>")
     public void then(BigDecimal payment, BigDecimal stampduty, BigDecimal first) {
-        assertEquals(payment,  loan.getMonthPayment().value());
+        assertEquals(payment, loan.getMonthPayment().value());
         assertEquals(first, loan.getFirstMonthPayment().value());
         assertEquals(stampduty, loan.getStampDuty().value());
     }
