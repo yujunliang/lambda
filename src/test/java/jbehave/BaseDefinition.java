@@ -1,5 +1,8 @@
 package jbehave;
 
+import com.thoughtworks.paranamer.BytecodeReadingParanamer;
+import com.thoughtworks.paranamer.CachingParanamer;
+import com.thoughtworks.paranamer.Paranamer;
 import org.jbehave.core.Embeddable;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -15,9 +18,6 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
 import org.jbehave.core.steps.ParameterConverters.DateConverter;
 import org.jbehave.core.steps.SilentStepMonitor;
-import org.jbehave.paranamer.BytecodeReadingParanamer;
-import org.jbehave.paranamer.CachingParanamer;
-import org.jbehave.paranamer.Paranamer;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
