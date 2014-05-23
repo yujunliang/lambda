@@ -1,7 +1,7 @@
 package algocraft.function;
 
 
-import com.google.common.base.Function;
+import java.util.function.Function;
 
 public class AbstractFunction<T1,T2> implements Function<T1, T2> {
 

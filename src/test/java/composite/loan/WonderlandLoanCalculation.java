@@ -4,15 +4,15 @@ package composite.loan;
 import algocraft.function.CompositeFunction;
 import functions.atomic.*;
 
-import static functions.primitives.Rate.valueOf;
+import static composite.FinancialInstrument.RATE_3;
 
 public final class WonderlandLoanCalculation extends CompositeFunction<Loan, Loan> {
 
     public WonderlandLoanCalculation() {
         super(
-                new SetMonthlyPayment<Loan>(new MonthlyLoanPayment<Loan>()),
-                new SetStampDuty<Loan>(new StampDutyOnPrincipal<Loan>(valueOf(0.03))),
-                new SetFirstMonthPayment<Loan>(new SumMonthlyPaymentAndStampDuty<Loan>())
+                new SetMonthlyPayment<>(new MonthlyLoanPayment<>()),
+                new SetStampDuty<>(new StampDutyOnPrincipal<>(RATE_3)),
+                new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
         );
     }
 }

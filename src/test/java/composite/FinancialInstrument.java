@@ -2,9 +2,15 @@ package composite;
 
 import functions.primitives.*;
 
+import static functions.primitives.Rate.valueOf;
+
 public abstract class FinancialInstrument implements PrincipalAndApplicationFee, FirstMonthPaymentWithApplicationFee,
         FirstMonthPaymentWithStampDuty, MonthlyPaymentCaculatable, WithCountry, FinanceApplicationFee,
         StampDuty{
+
+    public static final Rate RATE_2 = valueOf(0.02);
+    public static final Rate RATE_3 = valueOf(0.03);
+
     private Amount principal;
     private int term;
     private Rate rate;

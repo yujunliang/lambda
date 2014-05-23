@@ -1,8 +1,9 @@
 package functions.atomic;
 
-import com.google.common.base.Function;
 import functions.primitives.Amount;
 import functions.primitives.StampDuty;
+
+import java.util.function.Function;
 
 public class SetStampDuty<T extends StampDuty> implements Function<T, T> {
 

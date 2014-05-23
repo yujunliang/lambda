@@ -1,20 +1,27 @@
 package functions.atomic;
 
+import java.math.BigDecimal;
+
+import static java.math.BigDecimal.ROUND_HALF_UP;
+
 public class FinancialCalculator {
+
+    public static final BigDecimal ONE_HUNDRED = BigDecimal.valueOf(100);
 
     /**
      * This formula is from
-     *      http://www.kbapps.com/finance.html
-     *      Simple Interest Amortized FinancialInstrument Formula
+     * http://www.kbapps.com/calculators/FinancialFormulas.php
+     * Simple Interest Amortized FinancialInstrument Formula
+     *
      * @param rate
      * @param term
      * @param principal
      * @return
      */
-    public static double monthlyLoanPayment(double rate, int term, double principal) {
-        double b = rate / 100;
-        double v = Math.pow(b + 1, term);
-        return principal * v / (v - 1) * b;
+    public static BigDecimal monthlyLoanPayment(BigDecimal rate, int term, BigDecimal principal) {
+        BigDecimal b = rate.divide(ONE_HUNDRED);
+        BigDecimal v = b.add(BigDecimal.valueOf(1)).pow(term);
+        return principal.multiply(v).divide(v.subtract(BigDecimal.ONE), 32, ROUND_HALF_UP).multiply(b);
     }
 
     /**
@@ -27,10 +34,10 @@ public class FinancialCalculator {
      * @param residual
      * @return
      */
-    public static double monthlyLeasePayment(double rate, int term, double principal, double residual) {
-        double depreciationFee = (principal - residual) / term;
-        double financeFee = (principal + residual) * rate/100;
-        return depreciationFee + financeFee;
-        
+    public static BigDecimal monthlyLeasePayment(BigDecimal rate, int term, BigDecimal principal, BigDecimal residual) {
+        BigDecimal depreciationFee = principal.subtract(residual).divide(BigDecimal.valueOf(term), 32, ROUND_HALF_UP);
+        BigDecimal financeFee = principal.add(residual).multiply(rate).divide(ONE_HUNDRED);
+        return depreciationFee.add(financeFee);
+
     }
 }

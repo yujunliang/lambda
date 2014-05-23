@@ -1,10 +1,11 @@
 package functions.atomic;
 
-import com.google.common.base.Function;
 import functions.primitives.Amount;
 import functions.primitives.MonthlyPaymentCaculatable;
 
-public class SetMonthlyPayment<T extends MonthlyPaymentCaculatable> implements Function<T, T>{
+import java.util.function.Function;
+
+public class SetMonthlyPayment<T extends MonthlyPaymentCaculatable> implements Function<T, T> {
 
     private final Function<T, Amount> calc;
 

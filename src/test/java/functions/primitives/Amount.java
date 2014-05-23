@@ -17,6 +17,9 @@ public class Amount {
     public static Amount valueOf(double d) {
         return new Amount(d);
     }
+    public static Amount valueOf(BigDecimal d) {
+        return new Amount(d);
+    }
 
     private BigDecimal amount;
 
@@ -30,12 +33,16 @@ public class Amount {
                 .setScale(CENTS, BigDecimal.ROUND_HALF_UP);
     }
 
+    public Amount(BigDecimal d) {
+        amount = d.setScale(CENTS, BigDecimal.ROUND_HALF_UP);
+    }
+
     public long centValue() {
         return (long) (doubleValue() * 100);
     }
 
-    public Amount devide(int int1) {
-        return valueOf(doubleValue() / int1);
+    public Amount devide(int value) {
+        return valueOf(doubleValue() / value);
     }
 
     @Override
@@ -55,8 +62,8 @@ public class Amount {
     }
 
     public Amount times(Rate rate) {
-        double r = rate == null ? 0.0 : rate.doubleValue();
-        return valueOf(this.doubleValue() * r);
+        BigDecimal r = rate == null ? BigDecimal.ZERO : rate.value();
+        return Amount.valueOf(this.amount.multiply(r));
     }
 
     public Amount plus(Amount amount) {

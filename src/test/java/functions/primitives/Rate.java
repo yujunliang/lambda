@@ -24,8 +24,8 @@ public class Rate {
 		rate = BigDecimal.valueOf(d).setScale(SCALE_OF_TWO);
 	}
 
-	public double doubleValue() {
-		return rate.doubleValue();
+	public BigDecimal value() {
+		return rate;
 	}
 
 	@Override

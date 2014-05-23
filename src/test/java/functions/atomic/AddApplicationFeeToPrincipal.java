@@ -1,8 +1,9 @@
 package functions.atomic;
 
-import com.google.common.base.Function;
 import functions.primitives.Amount;
 import functions.primitives.PrincipalAndApplicationFee;
+
+import java.util.function.Function;
 
 public class AddApplicationFeeToPrincipal<T extends PrincipalAndApplicationFee> implements Function<T, Amount> {
     @Override

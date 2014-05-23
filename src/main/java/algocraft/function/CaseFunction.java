@@ -1,9 +1,10 @@
 package algocraft.function;
 
-import com.google.common.base.Function;
+
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Map;
+import java.util.function.Function;
 
 
 public class CaseFunction<T1, T2, V> implements Function<T1, T2> {
