@@ -81,14 +81,14 @@ public enum SixFlags {
     /**
      * Format this class and its variables into a table.
      *
-     * @return
+     * @return a description of this enum
      */
     public static CharSequence display() {
         return Describer.describe();
     }
 
     /**
-     * @param description
+     * @param description the description of the flag and its ordinal is used to index the flag.
      * @return the value of the boolean on the ordinal of the given description enum.
      */
     public boolean valueOf(Enum description) {
@@ -96,7 +96,7 @@ public enum SixFlags {
     }
 
     /**
-     * @param index
+     * @param index the index of the flag
      * @return the value of the boolean on the given index.
      */
     public boolean valueAt(int index) {
@@ -104,8 +104,8 @@ public enum SixFlags {
     }
 
     /**
-     * @param description
-     * @param flag
+     * @param description the description of the flag
+     * @param flag        the value of the flag
      * @return itself or the flipped instance which has the same value as the given value
      * on the ordinal of the given description enum.
      */
@@ -115,8 +115,8 @@ public enum SixFlags {
     }
 
     /**
-     * @param index
-     * @param flag
+     * @param index the index of the flag
+     * @param flag  the value of the flag
      * @return itself or the flipped instance which has the same value as the given value
      * on the given index.
      */
@@ -128,7 +128,7 @@ public enum SixFlags {
      * Build the following line according to its value,
      * |YYYYYY|0b111111=63|Y|Y|Y|Y|Y|Y|_YYYYY |Y_YYYY |YY_YYY |YYY_YY |YYYY_Y |YYYYY_ |
      *
-     * @return
+     * @return the description of this enum constant
      */
     public CharSequence describe() {
         return Describer.describe(this);
@@ -137,8 +137,8 @@ public enum SixFlags {
     /**
      * Description this instance according to the give description enum instances.
      *
-     * @param descriptions
-     * @return
+     * @param descriptions the description of each flag
+     * @return             the description of this enum constant
      */
     public CharSequence toString(Enum... descriptions) {
         return concatenate("[", Describer.describe(this.flags, descriptions), "]");
@@ -213,7 +213,7 @@ public enum SixFlags {
         static void setup(SixFlags flag) {
             lookup.put(encodeAll(flag.flags), flag);
             if (lookup.size() == pow(2, flag.flags.length)) {
-                lookup.keySet().forEach(key -> flipFlags(key));
+                lookup.keySet().forEach(Initializer::flipFlags);
                 lookup.clear();
                 lookup = null;
             }
