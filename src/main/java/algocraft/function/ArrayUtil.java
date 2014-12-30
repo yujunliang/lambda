@@ -1,8 +1,5 @@
 package algocraft.function;
 
-/**
- * Created by yujunliang on 4/30/14.
- */
 public class ArrayUtil {
 
     public static Integer[] intArray(int length) {
