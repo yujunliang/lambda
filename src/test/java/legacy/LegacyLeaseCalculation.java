@@ -13,12 +13,12 @@ public class LegacyLeaseCalculation {
 
             lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
             lease.setStampDuty(
-                    lease.getMonthPayment().multiply(new BigDecimal(0.02)).setScale(2, BigDecimal.ROUND_HALF_UP)
+                lease.getMonthPayment().multiply(new BigDecimal(0.02)).setScale(2, BigDecimal.ROUND_HALF_UP)
             );
             lease.setFirstMonthPayment(
-                    lease.getMonthPayment().add(
-                            lease.getStampDuty()
-                    ).setScale(2, BigDecimal.ROUND_HALF_UP)
+                lease.getMonthPayment().add(
+                    lease.getStampDuty()
+                ).setScale(2, BigDecimal.ROUND_HALF_UP)
 
             );
         } else if (lease.getCountry().equals("NR")) {
@@ -29,13 +29,13 @@ public class LegacyLeaseCalculation {
             lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
 
             lease.setStampDuty(
-                    lease.getMonthPayment().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
+                lease.getMonthPayment().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
             );
 
             lease.setFirstMonthPayment(
-                    lease.getMonthPayment().add(
-                            lease.getStampDuty().setScale(2, BigDecimal.ROUND_HALF_UP)
-                    )
+                lease.getMonthPayment().add(
+                    lease.getStampDuty().setScale(2, BigDecimal.ROUND_HALF_UP)
+                )
             );
 
             lease.setFirstMonthPayment(lease.getFirstMonthPayment().add(lease.getApplicationFee()));
@@ -49,12 +49,12 @@ public class LegacyLeaseCalculation {
             lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
 
             lease.setStampDuty(
-                    lease.getPrincipal().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
+                lease.getPrincipal().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
             );
             lease.setFirstMonthPayment(
-                    lease.getMonthPayment().add(
-                            lease.getStampDuty()
-                    ).setScale(2, BigDecimal.ROUND_HALF_UP)
+                lease.getMonthPayment().add(
+                    lease.getStampDuty()
+                ).setScale(2, BigDecimal.ROUND_HALF_UP)
 
             );
         }

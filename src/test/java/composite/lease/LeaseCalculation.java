@@ -9,8 +9,8 @@ import static composite.Country.*;
 public class LeaseCalculation extends CaseFunction<Lease, Lease, Country> {
     public LeaseCalculation() {
         super(new GetCountry(),
-                GD, new GondorLeaseCalculation(),
-                NR, new NarniaLeaseCalculation(),
-                WL, new WonderlandLeaseCalculation());
+            GD, new GondorLeaseCalculation(),
+            NR, new NarniaLeaseCalculation(),
+            WL, new WonderlandLeaseCalculation());
     }
 }
