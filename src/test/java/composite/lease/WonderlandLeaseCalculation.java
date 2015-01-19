@@ -10,9 +10,9 @@ public final class WonderlandLeaseCalculation extends CompositeFunction<Lease, L
 
     public WonderlandLeaseCalculation() {
         super(
-                new SetMonthlyPayment<>(new MonthlyLeasePayment<>()),
-                new SetStampDuty<>(new StampDutyOnPrincipal<>(RATE_3)),
-                new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
+            new SetMonthlyPayment<>(new MonthlyLeasePayment<>()),
+            new SetStampDuty<>(new StampDutyOnPrincipal<>(RATE_3)),
+            new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
         );
     }
 }

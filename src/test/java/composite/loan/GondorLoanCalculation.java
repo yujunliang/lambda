@@ -10,9 +10,9 @@ public final class GondorLoanCalculation extends CompositeFunction<Loan, Loan> {
 
     public GondorLoanCalculation() {
         super(
-                new SetMonthlyPayment<>(new MonthlyLoanPayment<>()),
-                new SetStampDuty<>(new StampDutyOnMonthlyPayment<>(RATE_2)),
-                new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
+            new SetMonthlyPayment<>(new MonthlyLoanPayment<>()),
+            new SetStampDuty<>(new StampDutyOnMonthlyPayment<>(RATE_2)),
+            new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
         );
     }
 }
