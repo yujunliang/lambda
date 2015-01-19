@@ -8,85 +8,90 @@ Object Oriented features from Java Programming Language. It has been
 refactored to utilize the Function and Predicate from Google collections.
 They used to be called Solution and Applicability.
 
+Benefit
+-------
+
 So instead of writing code like this,
 
-        if (lease.getCountry().equals("GD")) {
+    if (lease.getCountry().equals("GD")) {
 
-            double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
-            double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
-
-
-            lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
-            lease.setStampDuty(
-                lease.getMonthPayment().multiply(new BigDecimal(0.02)).setScale(2, BigDecimal.ROUND_HALF_UP)
-            );
-            lease.setFirstMonthPayment(
-                lease.getMonthPayment().add(
-                    lease.getStampDuty()
-                ).setScale(2, BigDecimal.ROUND_HALF_UP)
-
-            );
-        } else if (lease.getCountry().equals("NR")) {
-            double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
-            double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
+        double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
+        double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
 
 
-            lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
+        lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
+        lease.setStampDuty(
+            lease.getMonthPayment().multiply(new BigDecimal(0.02)).setScale(2, BigDecimal.ROUND_HALF_UP)
+        );
+        lease.setFirstMonthPayment(
+            lease.getMonthPayment().add(
+                lease.getStampDuty()
+            ).setScale(2, BigDecimal.ROUND_HALF_UP)
 
-            lease.setStampDuty(
-                lease.getMonthPayment().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
-            );
-
-            lease.setFirstMonthPayment(
-                lease.getMonthPayment().add(
-                    lease.getStampDuty().setScale(2, BigDecimal.ROUND_HALF_UP)
-                )
-            );
-
-            lease.setFirstMonthPayment(lease.getFirstMonthPayment().add(lease.getApplicationFee()));
-
-
-        } else if (lease.getCountry().equals("WL")) {
-            double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
-            double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
+        );
+    } else if (lease.getCountry().equals("NR")) {
+        double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
+        double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
 
 
-            lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
+        lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
 
-            lease.setStampDuty(
-                lease.getPrincipal().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
-            );
-            lease.setFirstMonthPayment(
-                lease.getMonthPayment().add(
-                    lease.getStampDuty()
-                ).setScale(2, BigDecimal.ROUND_HALF_UP)
+        lease.setStampDuty(
+            lease.getMonthPayment().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
+        );
 
+        lease.setFirstMonthPayment(
+            lease.getMonthPayment().add(
+                lease.getStampDuty().setScale(2, BigDecimal.ROUND_HALF_UP)
+            )
+        );
+
+        lease.setFirstMonthPayment(lease.getFirstMonthPayment().add(lease.getApplicationFee()));
+
+
+    } else if (lease.getCountry().equals("WL")) {
+        double depreciationFee = (lease.getPrincipal().doubleValue() - lease.getResidualValue().doubleValue()) / (lease.getTerm() * 12);
+        double financeFee = (lease.getPrincipal().doubleValue() + lease.getResidualValue().doubleValue()) * lease.getRate().doubleValue() / 100;
+
+
+        lease.setMonthPayment(new BigDecimal(depreciationFee + financeFee).setScale(2, BigDecimal.ROUND_HALF_UP));
+
+        lease.setStampDuty(
+            lease.getPrincipal().multiply(new BigDecimal(0.03)).setScale(2, BigDecimal.ROUND_HALF_UP)
+        );
+        lease.setFirstMonthPayment(
+            lease.getMonthPayment().add(
+                lease.getStampDuty()
+            ).setScale(2, BigDecimal.ROUND_HALF_UP)
+
+        );
+    }
+
+We write code like this, and you won't see any function composing,
+
+    public class LeaseCalculation extends CaseFunction<Lease, Lease, Country> {
+        public LeaseCalculation() {
+            super(new GetCountry(),
+                GD, new GondorLeaseCalculation(),
+                NR, new NarniaLeaseCalculation(),
+                WL, new WonderlandLeaseCalculation());
+        }
+    }
+
+
+    public final class GondorLeaseCalculation extends CompositeFunction<Lease, Lease> {
+
+        public GondorLeaseCalculation() {
+            super(
+                new SetMonthlyPayment<>(new MonthlyLeasePayment<>()),
+                new SetStampDuty<>(new StampDutyOnMonthlyPayment<>(RATE_2)),
+                new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
             );
         }
+    }
 
-We write code like this,
-
-        public class LeaseCalculation extends CaseFunction<Lease, Lease, Country> {
-            public LeaseCalculation() {
-                super(new GetCountry(),
-                    GD, new GondorLeaseCalculation(),
-                    NR, new NarniaLeaseCalculation(),
-                    WL, new WonderlandLeaseCalculation());
-            }
-        }
-
-
-        public final class GondorLeaseCalculation extends CompositeFunction<Lease, Lease> {
-
-            public GondorLeaseCalculation() {
-                super(
-                    new SetMonthlyPayment<>(new MonthlyLeasePayment<>()),
-                    new SetStampDuty<>(new StampDutyOnMonthlyPayment<>(RATE_2)),
-                    new SetFirstMonthPayment<>(new SumMonthlyPaymentAndStampDuty<>())
-                );
-            }
-        }
-
+Example
+-------
 
 Please run LoanStory.java to test. The implementation is LoanCalculation.java.
 LegacyLoanCalculation.java is an alternative solution without using the
@@ -111,24 +116,26 @@ complex business problems.
 
             http://www.kbapps.com/finance.html
 
-Note,
+Note
+----
 
-    When learning this framework, please pay more attention to how to wire
-    atomic functions into a complex function than how individual functions
-    work. The example of wiring can be found in GondorCalculation,
-    NarniaCalculation and WonderlandCalculation.
+When learning this framework, please pay more attention to how to wire
+atomic functions into a complex function than how individual functions
+work. The example of wiring can be found in GondorCalculation,
+NarniaCalculation and WonderlandCalculation.
 
 
-Exercise,
+Exercise
+--------
 
-    Now we need add functionality to support lease business, assume everything
-    remaining same but there is no first time buyer rule for lease business
-    and application fee need to be paid on first month payment. How to add the
-    new function? The formula to calculate lease payment can be found here
+Now we need add functionality to support lease business, assume everything
+remaining same but there is no first time buyer rule for lease business
+and application fee need to be paid on first month payment. How to add the
+new function? The formula to calculate lease payment can be found here
 
             http://www.leaseguide.com/lease08.htm
 
-Answer,
+Solution
+--------
 
-    The implementation is LeaseCalculation.java and please run LeaseStory.java
-    to test.
+The implementation is LeaseCalculation.java and please run LeaseStory.java to test.
