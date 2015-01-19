@@ -1,13 +1,12 @@
+Compalgo
+========
+
 Compalgo is a lightweight framework helping you to split complex business
 logic and rules into individual atomic functions and assemble them together
 to any complexity level. It enables functional programming paradigm with
 Object Oriented features from Java Programming Language. It has been
 refactored to utilize the Function and Predicate from Google collections.
 They used to be called Solution and Applicability.
-
-Please run LoanStory.java to test. The implementation is LoanCalculation.java.
-LegacyLoanCalculation.java is an alternative solution without using the
-framework.
 
 So instead of writing code like this,
 
@@ -89,7 +88,9 @@ We write code like this,
         }
 
 
-
+Please run LoanStory.java to test. The implementation is LoanCalculation.java.
+LegacyLoanCalculation.java is an alternative solution without using the
+framework.
 
 The LoanStory.java demonstrates how to use Compalgo to solve the following
 complex business problems.
