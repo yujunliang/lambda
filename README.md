@@ -1,6 +1,8 @@
 Compalgo
 ========
 
+[![Build Status](https://travis-ci.org/yujunliang/compalgo.svg?branch=master)](https://travis-ci.org/yujunliang/compalgo)
+
 Compalgo is a lightweight framework helping you to split complex business
 logic and rules into individual atomic functions and assemble them together
 to any complexity level. It enables functional programming paradigm with
