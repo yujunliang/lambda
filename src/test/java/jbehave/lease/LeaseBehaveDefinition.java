@@ -7,7 +7,6 @@ import functions.primitives.Rate;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import legacy.LegacyLeaseCalculation;
 
 import java.math.BigDecimal;
 

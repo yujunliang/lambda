@@ -1,7 +1,5 @@
 package jbehave.lease;
 
-import functions.primitives.Amount;
-import functions.primitives.Rate;
 import legacy.Lease;
 import legacy.LegacyLeaseCalculation;
 import org.jbehave.core.annotations.Given;

@@ -1,3 +1,9 @@
+Narrative:
+As a user
+I want to perform an action
+So that I can achieve a business goal
+
+Scenario: scenario description
 Given <term> year loan of <amount> at <rate> in <country> for <first_time> first time buyer with <borrowed> borrowed application fee <fee>
 When we calculate periodic payment
 Then monthly payment is <payment>, stamp duty is <stampduty> and first month payment is <first>
