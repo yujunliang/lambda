@@ -1,9 +1,9 @@
-Compalgo
+Lambda
 ========
 
 [![Build Status](https://travis-ci.org/yujunliang/compalgo.svg?branch=master)](https://travis-ci.org/yujunliang/compalgo)
 
-Compalgo is a lightweight framework helping you to split complex business
+Lambda is a lightweight framework helping you to split complex business
 logic and rules into individual atomic functions and assemble them together
 to any complexity level. It enables functional programming paradigm with
 Object Oriented features from Java Programming Language. It has been
@@ -99,7 +99,7 @@ Please run LoanStory.java to test. The implementation is LoanCalculation.java.
 LegacyLoanCalculation.java is an alternative solution without using the
 framework.
 
-The LoanStory.java demonstrates how to use Compalgo to solve the following
+The LoanStory.java demonstrates how to use Lambda to solve the following
 complex business problems.
 
     In Narnia, if the buyers borrow the application fee, the application fee
