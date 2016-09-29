@@ -1,7 +1,7 @@
 Lambda
 ========
 
-[![Build Status](https://travis-ci.org/yujunliang/compalgo.svg?branch=master)](https://travis-ci.org/yujunliang/compalgo)
+[![Build Status](https://travis-ci.org/yujunliang/lambda.svg?branch=master)](https://travis-ci.org/yujunliang/lambda)
 
 Lambda is a lightweight framework helping you to split complex business
 logic and rules into individual atomic functions and assemble them together
